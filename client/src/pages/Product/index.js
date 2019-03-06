@@ -31,7 +31,9 @@ export default class Product extends Component {
   };
   
   handleChocie = (id) => {
+    console.log('Hey')
     API.saveCart(id)
+    .then(alert('Added to Cart!'))
     .catch(err => console.log(err));
   }
 
@@ -88,7 +90,7 @@ export default class Product extends Component {
                       <p>{this.state.product.description}</p>
                       <div className="row row-pb-sm">
                         <div className="col-md-4">
-                          <div className="input-group">
+                          {/* <div className="input-group">
                             <span className="input-group-btn">
                               <button type="button" className="quantity-left-minus btn" data-type="minus" data-field>
                                 <i className="icon-minus2" />
@@ -100,10 +102,12 @@ export default class Product extends Component {
                                 <i className="icon-plus2" />
                               </button>
                             </span>
-                          </div>
+                            
+                          </div> */}
+                          <AddToCart id={this.state.product._id} handleChocie={this.handleChocie} />
                         </div>
                       </div>
-                      <AddToCart handleChocie={this.handleChocie(this.state.product._id)} />
+                      
                     </div>
                   </div>
                 </div>

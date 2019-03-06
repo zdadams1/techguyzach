@@ -14,5 +14,11 @@ export default {
   },
   getSess: function() {
     return axios.get("/api/items/cart");
+  },
+  lessThanHundred: function() {
+    return axios.get("/api/items/lessThan");
+  },
+  greatThanHundred: function() {
+    return axios.get("/api/items/greatThan");
   }
 };

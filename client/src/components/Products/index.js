@@ -16,7 +16,7 @@ export default class Products extends Component {
             <p className="tag"><span className="new">New</span></p>
             <div className="cart">
               <p>
-                <span className="addtocart" onClick={() => this.props.handleChocie(this.props.id)}><i className="icon-shopping-cart"></i></span> 
+                <span className="addtocart"><a onClick={() => this.props.handleChocie(this.props.id)}><i className="icon-shopping-cart"></i></a></span> 
                 <span><a href={'products/' + this.props.id}><i className="icon-eye"></i></a></span> 
               </p>
             </div>

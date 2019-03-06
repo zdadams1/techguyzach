@@ -22,7 +22,7 @@ const productSeed = [
   },
   {
     name: 'TV',
-    price: 120.99,
+    price: 10.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv2.jpg',
     imageSecond: 'oldTv1.jpg',
@@ -33,7 +33,7 @@ const productSeed = [
   },
   {
     name: 'Spoon',
-    price: 120.99,
+    price: 90.97,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv3.jpg',
     imageSecond: 'oldTv4.jpg',
@@ -43,8 +43,8 @@ const productSeed = [
     category: 'electronics'
   },
   {
-    name: 'Old TV',
-    price: 120.99,
+    name: 'Headphones',
+    price: 10.12,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv4.jpg',
     imageSecond: 'oldTv3.jpg',
@@ -54,8 +54,8 @@ const productSeed = [
     category: 'electronics'
   },
   {
-    name: 'Old TV',
-    price: 120.99,
+    name: 'Newish TV',
+    price: 130.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv1.jpg',
     imageSecond: 'oldTv3.jpg',
@@ -65,8 +65,8 @@ const productSeed = [
     category: 'electronics'
   },
   {
-    name: 'Old TV',
-    price: 120.99,
+    name: 'Cup',
+    price: 100.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv1.jpg',
     imageSecond: 'oldTv2.jpg',
@@ -76,8 +76,8 @@ const productSeed = [
     category: 'electronics'
   },
   {
-    name: 'TV',
-    price: 120.99,
+    name: 'Rake',
+    price: 78.29,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv2.jpg',
     imageSecond: 'oldTv1.jpg',
@@ -88,7 +88,7 @@ const productSeed = [
   },
   {
     name: 'Spoon',
-    price: 120.99,
+    price: 920.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv3.jpg',
     imageSecond: 'oldTv4.jpg',

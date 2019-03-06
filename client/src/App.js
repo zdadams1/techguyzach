@@ -13,29 +13,30 @@ import API from "./utils/API";
 
 class App extends Component {
   state = {
-    count: 3,
+    count: 0,
     products: []
+
   };
   
-  componentDidMount() {
-    this.loadProducts();
-  }
+  // componentDidMount() {
+  //   this.loadProducts();
+  // }
 
-  loadProducts = () => {
-    API.getSess()
-      .then(res =>
-        this.setState({ products: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadProducts = () => {
+  //   API.getSess()
+  //     .then(res =>
+  //       this.setState({ products: res.data })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
   
   
   render() {
-   console.log(this.state.products.totalQty)
+  //  console.log(this.state.products.totalQty)
     return (
       <Router>
       <div id="page">
-      <Nav total={this.state.products.totalQty} />
+      <Nav  />
       <Switch>
       
       

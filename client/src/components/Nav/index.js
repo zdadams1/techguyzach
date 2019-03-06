@@ -26,7 +26,7 @@ export default class Nav extends Component {
   
   render() {
     
-console.log(this.state.cart.cart)
+console.log('meNav ' + this.state.cart.cart)
     return (
       <nav className="colorlib-nav" role="navigation">
         <div className="top-menu">
@@ -42,7 +42,7 @@ console.log(this.state.cart.cart)
                   <li><a href="/products">Shop</a></li>
                   <li><a href="/">About</a></li>
                   <li><a href="/">Contact</a></li>
-                  <li><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.total} </a></li>
+                  <li><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li>
                 </ul>
               </div>
             </div>

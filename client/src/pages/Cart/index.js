@@ -45,7 +45,7 @@ export default class Cart extends Component {
     // console.log(datas[key])
     final.push(datas[key])
   }
-console.log( this.state.cartData[0])
+console.log('meCart' + this.state.cartData[0])
     return (
       <div>
          <aside id="colorlib-hero" className="breadcrumbs">
@@ -131,7 +131,7 @@ console.log( this.state.cartData[0])
                    </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
-                       <span className="price">${item.price}</span>
+                       <span className="price">${Math.round(item.price * 100) / 100}</span>
                      </div>
                    </div>
                    <div className="one-eight text-center">

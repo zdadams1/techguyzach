@@ -35,6 +35,23 @@ router.get("/cart", function(req, res) {
     res.json(cart);
 });
 
+router.get("/lessThan", function(req, res) {
+  console.log(req.session.id)
+  
+  db.Product.find({ price: {$lt: 100.00} },function (err, docs) {
+    
+  }).then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
+
+router.get("/greatThan", function(req, res) {
+  console.log(req.session.id)
+  
+  db.Product.find({ price: {$gte: 100.00} },function (err, docs) {
+    
+  }).then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
  
 
 // Matches with "/api/books/:id"

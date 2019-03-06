@@ -8,13 +8,15 @@ import Nav from "../components/Nav";
 class Home extends Component {
   state = {
     products: [],
+    cart: [],
     count: 0,
+    
   };
 
   componentDidMount() {
     this.loadProducts();
+    
   }
-
 
   loadProducts = () => {
     API.getProducts()
@@ -23,18 +25,40 @@ class Home extends Component {
       )
       .catch(err => console.log(err));
   };
+
+  setNavCart = () => {
+    API.getSess()
+    .then(res =>
+      this.setState({ cart: res.data }))
+    .catch(err => console.log(err));
+  };
  
+
+  // handleChocie = (id) => {
+  //   API.saveCart(id)
+  //   .then(this.setState({ cart: this.state.cart.totalQty + 1}))
+  //   .catch(err => console.log(err));
+  // }
 
   handleChocie = (id) => {
     API.saveCart(id)
+    .then((alert('Added to Cart!')))
     .catch(err => console.log(err));
   }
 
+  updateNavCart = () => {
+    API.getSess()
+    .then(res =>
+      this.setState({ cart: res.data }))
+    .catch(err => console.log(err));
+  };
+
   render() {
+    console.log("meHome " + this.state.cart.items)
     return (
         
        <div>
-        
+       
         <HomeHeader />
         <div className="colorlib-shop">
 			<div className="container">

@@ -543,7 +543,7 @@ h1, h2, h3, h4, h5, h6, figure {
     color: gray;
     text-decoration: line-through;
     font-weight: 300; }
-  .product-entry:hover .product-img .cart {
+  .product-entry .product-img .cart {
     opacity: 1; }
 
 .product-detail-wrap .product-img {
