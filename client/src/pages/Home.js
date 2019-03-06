@@ -15,7 +15,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.loadProducts();
-    
+    this.setNavCart();
   }
 
   loadProducts = () => {
@@ -26,39 +26,46 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-  setNavCart = () => {
-    API.getSess()
-    .then(res =>
-      this.setState({ cart: res.data }))
-    .catch(err => console.log(err));
-  };
- 
 
-  // handleChocie = (id) => {
-  //   API.saveCart(id)
-  //   .then(this.setState({ cart: this.state.cart.totalQty + 1}))
-  //   .catch(err => console.log(err));
-  // }
+   // -------Cart Stuff --------------------
 
-  handleChocie = (id) => {
-    API.saveCart(id)
-    .then((alert('Added to Cart!')))
-    .catch(err => console.log(err));
+setNavCart = () => {
+  API.getSess()
+  .then(res =>
+    this.cartArray(res.data))
+  .catch(err => console.log(err));
+};
+
+cartArray = (data) => {
+  var datas = data.items;
+  var final =  [];
+  var work = 0;
+for(var key in datas) {
+  for(var ney in datas[key]) {
+    console.log(datas[key][ney])
+    if(ney === 'qty') {
+      work += datas[key][ney]
+    }
   }
+}
+  this.setState({ count: work})
+}
 
-  updateNavCart = () => {
-    API.getSess()
-    .then(res =>
-      this.setState({ cart: res.data }))
-    .catch(err => console.log(err));
-  };
+
+handleChocie = (id) => {
+  API.saveCart(id)
+  .then(this.setState({ count: this.state.count + 1}))
+  .catch(err => console.log(err));
+  alert('Added to Cart!')
+}
+
 
   render() {
-    console.log("meHome " + this.state.cart.items)
+    console.log(this.state.cart.totalQty)
     return (
         
        <div>
-       
+        <Nav totaler={this.state.count} />
         <HomeHeader />
         <div className="colorlib-shop">
 			<div className="container">

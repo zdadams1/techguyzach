@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import API from "../../utils/API";
+import Nav from "../../components/Nav";
 
 export default class Cart extends Component {
 
@@ -36,6 +37,7 @@ export default class Cart extends Component {
     this.setState({products: data})
   }
 
+
   render() {
     var datas = this.state.products.items;
     var final =  [];
@@ -47,6 +49,9 @@ export default class Cart extends Component {
   }
 console.log('meCart' + this.state.cartData[0])
     return (
+      <div>
+        <Nav />
+     
       <div>
          <aside id="colorlib-hero" className="breadcrumbs">
         <div className="flexslider">
@@ -201,6 +206,7 @@ console.log('meCart' + this.state.cartData[0])
             </div>
           </div>
         </div>
+      </div>
       </div>
       </div>
     )

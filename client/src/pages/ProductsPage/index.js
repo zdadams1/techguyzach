@@ -2,18 +2,21 @@ import React, { Component } from 'react'
 import API from "../../utils/API";
 import Products from "../../components/Products";
 import Filter from "../../components/Filter";
+import Nav from "../../components/Nav";
 
 
 export default class ProductPage extends Component {
   state = {
-    products: []
+    products: [],
+    count: 0
   };
 
   componentDidMount() {
     this.loadProducts();
-    console.log(this.state.products)
+    this.setNavCart();
   }
 
+//Loads Products
   loadProducts = () => {
     API.getProducts()
       .then(res =>
@@ -22,14 +25,40 @@ export default class ProductPage extends Component {
       .catch(err => console.log(err));
   };
 
-  updateCart = id => {
-    API.saveCart(id)
-  };
+ // -------Cart Stuff --------------------
 
-  handleChocie = (id) => {
-    API.saveCart(id)
-    .catch(err => console.log(err));
+ setNavCart = () => {
+  API.getSess()
+  .then(res =>
+    this.cartArray(res.data))
+  .catch(err => console.log(err));
+};
+
+cartArray = (data) => {
+  var datas = data.items;
+  var final =  [];
+  var work = 0;
+for(var key in datas) {
+  for(var ney in datas[key]) {
+    console.log(datas[key][ney])
+    if(ney === 'qty') {
+      work += datas[key][ney]
+    }
   }
+}
+  this.setState({ count: work})
+}
+
+
+handleChocie = (id) => {
+  API.saveCart(id)
+  .then(this.setState({ count: this.state.count + 1}))
+  .catch(err => console.log(err));
+  alert('Added to Cart!')
+}
+
+
+  //Filter 
   
   lessThan = () => {
     API.lessThanHundred()
@@ -56,6 +85,10 @@ export default class ProductPage extends Component {
       return (
 
         <div>
+          <Nav totaler={this.state.count} />
+       
+        <div>
+
           <aside id="colorlib-hero" className="breadcrumbs">
         <div className="flexslider">
           <ul className="slides">
@@ -115,7 +148,7 @@ export default class ProductPage extends Component {
         </div>
       </div>
         </div>
-       
+        </div>
       )
     }
   }

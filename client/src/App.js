@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <Router>
       <div id="page">
-      <Nav  />
+     
       <Switch>
       
       

@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import API from "../../utils/API";
 import AddToCart from "../../components/AddCartBtn";
-
+import Nav from "../../components/Nav";
 
 export default class Product extends Component {
   state = {
     product: [],
-    products: []
+    products: [],
+    count: 0
   };
 
   componentDidMount() {
     this.loadProduct();
     this.loadProducts();
+    this.setNavCart();
   }
 
   loadProduct = () => {
@@ -30,22 +32,56 @@ export default class Product extends Component {
       .catch(err => console.log(err));
   };
   
-  handleChocie = (id) => {
-    console.log('Hey')
-    API.saveCart(id)
-    .then(alert('Added to Cart!'))
-    .catch(err => console.log(err));
-  }
+  // handleChocie = (id) => {
+  //   console.log('Hey')
+  //   API.saveCart(id)
+  //   .then(alert('Added to Cart!'))
+  //   .catch(err => console.log(err));
+  // }
 
-  doSomething = () => {
-    console.log('The do Something Click')
+ // -------Cart Stuff --------------------
+
+setNavCart = () => {
+  API.getSess()
+  .then(res =>
+    this.cartArray(res.data))
+  .catch(err => console.log(err));
+};
+
+cartArray = (data) => {
+  var datas = data.items;
+  var final =  [];
+  var work = 0;
+for(var key in datas) {
+  for(var ney in datas[key]) {
+    console.log(datas[key][ney])
+    if(ney === 'qty') {
+      work += datas[key][ney]
+    }
   }
+}
+  this.setState({ count: work})
+}
+
+
+handleChocie = (id) => {
+  API.saveCart(id)
+  .then(this.setState({ count: this.state.count + 1}))
+  .catch(err => console.log(err));
+  alert('Added to Cart!')
+}
+
+
   
     render() {
      
       console.log(this.state.product._id)
 
       return (
+
+        <div>
+
+        <Nav totaler={this.state.count} />
         
         <div>
 
@@ -300,10 +336,9 @@ export default class Product extends Component {
           </div>
         </div>
       </div>
-               
-              
               
 
+        </div>
         </div>
       )
     }
