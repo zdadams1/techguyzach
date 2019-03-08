@@ -38,11 +38,9 @@ setNavCart = () => {
 
 cartArray = (data) => {
   var datas = data.items;
-  var final =  [];
   var work = 0;
 for(var key in datas) {
   for(var ney in datas[key]) {
-    console.log(datas[key][ney])
     if(ney === 'qty') {
       work += datas[key][ney]
     }
@@ -54,14 +52,12 @@ for(var key in datas) {
 
 handleChocie = (id) => {
   API.saveCart(id)
-  .then(this.setState({ count: this.state.count + 1}))
-  .catch(err => console.log(err));
+  this.setState({ count: this.state.count + 1})
   alert('Added to Cart!')
 }
 
-
   render() {
-    console.log(this.state.cart.totalQty)
+    console.log()
     return (
         
        <div>
@@ -89,6 +85,44 @@ handleChocie = (id) => {
 				</div>
 			</div>
 		</div>
+    <div id="colorlib-featured-product">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6">
+                <a href="shop.html" className="f-product-1" style={{backgroundImage: 'url(images/product_5.jpg)'}}>
+                  <div className="desc">
+                    <h2>Sound <br />on the<br />go</h2>
+                  </div>
+                </a>
+              </div>
+              <div className="col-md-6">
+                <div className="row">
+                  <div className="col-md-6">
+                    <a href className="f-product-2" style={{backgroundImage: 'url(images/oldTv1.jpg)'}}>
+                      <div className="desc">
+                        <h2>New <br />Used <br />Newish</h2>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="col-md-6">
+                    <a href className="f-product-2" style={{backgroundImage: 'url(images/product_12.jpg)'}}>
+                      <div className="desc">
+                        <h2>Focus <br />Focus <br />Focus</h2>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="col-md-12">
+                    <a href className="f-product-2" style={{backgroundImage: 'url(images/home_slider_1.jpg)'}}>
+                      <div className="desc">
+                        <h2>Mouses <br />Cabels <br />&amp; more</h2>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
           
     <div id="colorlib-intro" className="colorlib-intro" style={{backgroundImage: 'url(https://images.pexels.com/photos/40192/woman-happiness-sunrise-silhouette-40192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'}} data-stellar-background-ratio="0.5">
         <div className="overlay" />

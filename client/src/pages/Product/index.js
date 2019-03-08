@@ -66,8 +66,7 @@ for(var key in datas) {
 
 handleChocie = (id) => {
   API.saveCart(id)
-  .then(this.setState({ count: this.state.count + 1}))
-  .catch(err => console.log(err));
+  this.setState({ count: this.state.count + 1})
   alert('Added to Cart!')
 }
 
@@ -81,7 +80,9 @@ handleChocie = (id) => {
 
         <div>
 
-        <Nav totaler={this.state.count} />
+        <Nav 
+        totaler={this.state.count} 
+        />
         
         <div>
 

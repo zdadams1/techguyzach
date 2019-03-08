@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
+import StripeCheckout from 'react-stripe-checkout';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import './style.css'
+
 
 export default class Cart extends Component {
 
@@ -37,17 +41,30 @@ export default class Cart extends Component {
     this.setState({products: data})
   }
 
+  deletProduct = (id) => {
+    API.reduceOne(id)
+    .then(res =>
+      this.cartArray(res.data))
+    .catch(err => console.log(err));
+  }
+
+  onToken = (token) => {
+
+    
+    console.log(token)
+    fetch('/save-stripe-token', {
+      method: 'POST',
+      body: JSON.stringify(token),
+    }).then(response => {
+      response.json().then(data => {
+        alert(`We are in business, ${data.email}`);
+      });
+    });
+  }
+
 
   render() {
-    var datas = this.state.products.items;
-    var final =  [];
-  for(var key in datas) {
-    // console.log(datas.hasOwnProperty(key))
-    // console.log(key)
-    // console.log(datas[key])
-    final.push(datas[key])
-  }
-console.log('meCart' + this.state.cartData[0])
+    
     return (
       <div>
         <Nav />
@@ -114,12 +131,20 @@ console.log('meCart' + this.state.cartData[0])
                 </div>
               </div>
 
+
+              <CSSTransitionGroup
+                  transitionName="products"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}
+                  >
               {this.state.cartData.map(item => (
                  
                  <div className="product-cart">
                    <div className="one-forth">
+                     <a href={'products/' + item.item._id}>
                      <div className="product-img" style={{backgroundImage: `url(images/${item.item.imageMain})`}}>
                      </div>
+                     </a>
                      <div className="display-tc">
                        <h3>{item.item.name}</h3>
                      </div>
@@ -136,19 +161,19 @@ console.log('meCart' + this.state.cartData[0])
                    </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
-                       <span className="price">${Math.round(item.price * 100) / 100}</span>
+                       <span className="price">${ Math.round(item.price * 100) / 100 }</span>
                      </div>
                    </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
-                       <a href="#" className="closed" />
+                       <a onClick={() => this.deletProduct(item.item._id)} className="closed" />
                      </div>
                    </div>
                  </div>
-   
+                
    
                    ))}
-
+                   </CSSTransitionGroup>
 
             </div>
           </div>
@@ -160,11 +185,16 @@ console.log('meCart' + this.state.cartData[0])
                   <div className="col-md-8">
                     <form action="#">
                       <div className="row form-group">
-                        <div className="col-md-9">
-                          <input type="text" name="quantity" className="form-control input-number" placeholder="Your Coupon Number..." />
-                        </div>
                         <div className="col-md-3">
-                          <input type="submit" defaultValue="Apply Coupon" className="btn btn-primary" />
+                          {/* <button type="submit" defaultValue="Apply Coupon" className="btn btn-primary">Checkout</button> */}
+                          <StripeCheckout
+                            
+                            token={this.onToken}
+                            stripeKey="pk_test_QrjYsS7P6TuZ1U50buIljzBf"
+                            email="wickersham.craig@gmail.com"
+                            currency="USD"
+                            shippingAddress
+                          />
                         </div>
                       </div>
                     </form>

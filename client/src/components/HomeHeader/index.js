@@ -73,44 +73,7 @@ export default class HomeHeader extends Component {
             </ul>
           </div>
         </aside>
-        <div id="colorlib-featured-product">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <a href="shop.html" className="f-product-1" style={{backgroundImage: 'url(images/product_5.jpg)'}}>
-                  <div className="desc">
-                    <h2>Sound <br />on the<br />go</h2>
-                  </div>
-                </a>
-              </div>
-              <div className="col-md-6">
-                <div className="row">
-                  <div className="col-md-6">
-                    <a href className="f-product-2" style={{backgroundImage: 'url(images/oldTv1.jpg)'}}>
-                      <div className="desc">
-                        <h2>New <br />Used <br />Newish</h2>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-md-6">
-                    <a href className="f-product-2" style={{backgroundImage: 'url(images/product_12.jpg)'}}>
-                      <div className="desc">
-                        <h2>Focus <br />Focus <br />Focus</h2>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-md-12">
-                    <a href className="f-product-2" style={{backgroundImage: 'url(images/home_slider_1.jpg)'}}>
-                      <div className="desc">
-                        <h2>Mouses <br />Cabels <br />&amp; more</h2>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     )
   }

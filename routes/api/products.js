@@ -18,7 +18,7 @@ const Cart = require("../../models/cart");
 router.get("/", function(req, res) {
   console.log(req.session.id)
   
-  db.Product.find(function (err, docs) {
+  db.Product.aggregate([{$sample: {size: 12}}], function (err, docs) {
     
   }).then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
@@ -34,6 +34,19 @@ router.get("/cart", function(req, res) {
     var cart = new Cart(req.session.cart);
     res.json(cart);
 });
+
+router.get('/remove/:id', function(req, res, next) {
+  var productId = req.params.id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+  cart.removeItem(productId);
+  req.session.cart = cart;
+  res.json(cart)
+});
+
+
+
+//Products Page Filter
 
 router.get("/lessThan", function(req, res) {
   console.log(req.session.id)
@@ -72,7 +85,7 @@ router.get('/item/:id', function(req, res) {
 
 
 //Adding to cart based on session
-router.get('/:id', function(req, res, next) {
+router.post('/:id', function(req, res, next) {
   console.log(req.session.id);
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});

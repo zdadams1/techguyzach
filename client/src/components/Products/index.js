@@ -13,7 +13,7 @@ export default class Products extends Component {
         <div className="col-md-3 text-center">
         <div className="product-entry">
           <div className="product-img" style={{backgroundImage: "url(" + this.props.imageMain + ")"}}>
-            <p className="tag"><span className="new">New</span></p>
+            {/* <p className="tag"><span className="new">Sale</span></p> */}
             <div className="cart">
               <p>
                 <span className="addtocart"><a onClick={() => this.props.handleChocie(this.props.id)}><i className="icon-shopping-cart"></i></a></span> 

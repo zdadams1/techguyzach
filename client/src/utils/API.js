@@ -10,10 +10,13 @@ export default {
   },
   saveCart: function(id) {
     console.log(id)
-    return axios.get("/api/items/" + id, {withCredentials: true});
+    return axios.post("/api/items/" + id, {withCredentials: true});
   },
   getSess: function() {
     return axios.get("/api/items/cart");
+  },
+  reduceOne: function(id) {
+    return axios.get("/api/items/remove/" + id);
   },
   lessThanHundred: function() {
     return axios.get("/api/items/lessThan");

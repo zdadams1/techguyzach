@@ -27,6 +27,7 @@ export default class Nav extends Component {
   render() {
     
 console.log('meNav ' + this.state.cart.cart)
+// const activeClass = (route) => { return this.location.pathname === route ? "active" : null }
     return (
       <nav className="colorlib-nav" role="navigation">
         <div className="top-menu">
@@ -37,12 +38,18 @@ console.log('meNav ' + this.state.cart.cart)
               </div>
               <div className="col-xs-10 text-right menu-1">
                 <ul>
-                  <li className="active"><a href="/">Home</a></li>
+                  {/* <li className={activeClass("/")}><a href="/">Home</a></li>
                   
-                  <li><a href="/products">Shop</a></li>
-                  <li><a href="/">About</a></li>
-                  <li><a href="/">Contact</a></li>
-                  <li><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li>
+                  <li className={activeClass("/products")}><a href="/products">Shop</a></li>
+                   <li className={activeClass("/")}><a href="/">About</a></li>
+                  <li className={activeClass("/")}><a href="/">Contact</a></li> 
+                  <li className={activeClass("/cart")}><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li> */}
+                  <li><a href="/">Home</a></li>
+                  
+                  <li ><a href="/products">Shop</a></li>
+                   <li><a href="/">About</a></li>
+                  <li><a href="/">Contact</a></li> 
+                  <li ><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li>
                 </ul>
               </div>
             </div>

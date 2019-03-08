@@ -3,6 +3,8 @@ import API from "../../utils/API";
 import Products from "../../components/Products";
 import Filter from "../../components/Filter";
 import Nav from "../../components/Nav";
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import './style.css'
 
 
 export default class ProductPage extends Component {
@@ -52,35 +54,44 @@ for(var key in datas) {
 
 handleChocie = (id) => {
   API.saveCart(id)
-  .then(this.setState({ count: this.state.count + 1}))
-  .catch(err => console.log(err));
+  this.setState({ count: this.state.count + 1})
   alert('Added to Cart!')
 }
-
 
   //Filter 
   
   lessThan = () => {
-    API.lessThanHundred()
+    const lessThen = this.state.products.filter(word => word.price < 100)
+    if(lessThen.length <= 0) {
+      API.lessThanHundred()
       .then(res =>
         this.setState({ products: res.data })
       )
       .catch(err => console.log(err));
+    }else {
+    this.setState({ products: lessThen })
+    }
   };
 
   greatThan = () => {
-    API.greatThanHundred()
+    const greatThen = this.state.products.filter(word => word.price > 100)
+    if(greatThen.length <= 0) {
+      API.greatThanHundred()
       .then(res =>
         this.setState({ products: res.data })
       )
       .catch(err => console.log(err));
+    }else {
+      this.setState({ products: greatThen })
+    }
+    
   };
 
 
   
   
     render() {
-    console.log('meProdP ' + this.state.products)
+    console.log(this.state.products)
   
       return (
 
@@ -114,6 +125,12 @@ handleChocie = (id) => {
           <div className="row">
             <div className="col-md-10 col-md-push-2">
 
+
+            <CSSTransitionGroup
+            transitionName="products"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}
+            >
             {this.state.products.map(product => (
                   <Products 
                     key={product._id}
@@ -124,19 +141,8 @@ handleChocie = (id) => {
                     handleChocie={this.handleChocie}
                   />
                 ))}
-              
-              {/* <div className="row">
-                <div className="col-md-12">
-                  <ul className="pagination">
-                    <li className="disabled"><a href="#">«</a></li>
-                    <li className="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">»</a></li>
-                  </ul>
-                </div>
-              </div> */}
+              </CSSTransitionGroup>
+           
             </div>
               <Filter
               lessThan={this.lessThan}

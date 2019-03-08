@@ -10,93 +10,392 @@ mongoose.connect(
 
 const productSeed = [
   {
-    name: 'Old TV',
+    name: 'Pinapple TV',
     price: 120.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'oldTv.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Used TV',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
     imageMain: 'oldTv1.jpg',
-    imageSecond: 'oldTv2.jpg',
-    imageThird: 'oldTv3.jpg',
-    imageFourth: 'oldTv4.jpg',
-    quantity: 20,
-    category: 'electronics'
+    quantity: 25,
+    category: 'electronics',
+    type: 'used'
   },
   {
-    name: 'TV',
-    price: 10.99,
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    imageMain: 'oldTv2.jpg',
-    imageSecond: 'oldTv1.jpg',
-    imageThird: 'oldTv4.jpg',
-    imageFourth: 'oldTv3.jpg',
-    quantity: 20,
-    category: 'electronics'
-  },
-  {
-    name: 'Spoon',
+    name: 'Voluptatem',
     price: 90.97,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv3.jpg',
-    imageSecond: 'oldTv4.jpg',
-    imageThird: 'oldTv1.jpg',
-    imageFourth: 'oldTv2.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'new'
   },
   {
-    name: 'Headphones',
+    name: 'Quia voluptas',
     price: 10.12,
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     imageMain: 'oldTv4.jpg',
-    imageSecond: 'oldTv3.jpg',
-    imageThird: 'oldTv2.jpg',
-    imageFourth: 'oldTv1.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'used'
   },
   {
-    name: 'Newish TV',
+    name: 'Natus',
     price: 130.99,
     description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    imageMain: 'oldTv1.jpg',
-    imageSecond: 'oldTv3.jpg',
-    imageThird: 'oldTv1.jpg',
-    imageFourth: 'oldTv2.jpg',
+    imageMain: 'product_1.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'new'
   },
   {
-    name: 'Cup',
+    name: 'Occaecati',
     price: 100.99,
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    imageMain: 'oldTv1.jpg',
-    imageSecond: 'oldTv2.jpg',
-    imageThird: 'oldTv3.jpg',
-    imageFourth: 'oldTv4.jpg',
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'product_1.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'used'
   },
   {
-    name: 'Rake',
+    name: 'Sequi',
     price: 78.29,
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    imageMain: 'oldTv2.jpg',
-    imageSecond: 'oldTv1.jpg',
-    imageThird: 'oldTv4.jpg',
-    imageFourth: 'oldTv3.jpg',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_2.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'new'
   },
   {
-    name: 'Spoon',
+    name: 'Vitae dicta',
     price: 920.99,
-    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    imageMain: 'oldTv3.jpg',
-    imageSecond: 'oldTv4.jpg',
-    imageThird: 'oldTv1.jpg',
-    imageFourth: 'oldTv2.jpg',
+    description: 'Quia consequuntur magni dolores eos qui ratione voluptatem sequi sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_3.jpg',
     quantity: 20,
-    category: 'electronics'
+    category: 'electronics',
+    type: 'used'
   },
+  {
+    name: 'Accusantium',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_4.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_5.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Iomnis iste',
+    price: 120.99,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_6.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Animi',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'product_7.jpg',
+    quantity: 25,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Ratione',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_8.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_9.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Natus',
+    price: 130.99,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_10.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Occaecati',
+    price: 100.99,
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'product_11.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Sequi',
+    price: 78.29,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_12.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Vitae dicta',
+    price: 920.99,
+    description: 'Quia consequuntur magni dolores eos qui ratione voluptatem sequi sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_13.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Voluptm aium',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_14.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_15.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Animi',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'product_16.jpg',
+    quantity: 25,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Luptm cusanm',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_17.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_18.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Natus',
+    price: 130.99,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'product_19.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'new'
+  },
+  {
+    name: 'Occaecati',
+    price: 100.99,
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'product_20.jpg',
+    quantity: 20,
+    category: 'electronics',
+    type: 'used'
+  },
+  {
+    name: 'Sequi',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'cup.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'cup1.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Animi',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'cup2.jpg',
+    quantity: 25,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Aspernatur',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'cup3.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'cup4.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Natus',
+    price: 130.99,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'cupp1.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Occaecati',
+    price: 100.99,
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'cupp2.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Occaecati',
+    price: 100.99,
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'cupp3.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'cup'
+  },
+  {
+    name: 'Pet quasi',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork1.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork2.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Animi',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'fork3.jpg',
+    quantity: 25,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Vexplicabo',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork4.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork5.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Occaecati',
+    price: 100.99,
+    description: 'Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'fork6.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Karchitecto',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork7.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Quia voluptas',
+    price: 10.12,
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork8.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Animi',
+    price: 29.98,
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+    imageMain: 'fork9.jpg',
+    quantity: 25,
+    category: 'kitchen',
+    type: 'fork'
+  },
+  {
+    name: 'Vlaborum',
+    price: 90.97,
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    imageMain: 'fork10.jpg',
+    quantity: 20,
+    category: 'kitchen',
+    type: 'fork'
+  }
 ];
 
 db.Product

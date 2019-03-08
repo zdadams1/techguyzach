@@ -1,0 +1,17 @@
+.products-enter {
+    opacity: 0.01;
+  }
+  
+  .products-enter.products-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .products-leave {
+    opacity: 1;
+  }
+  
+  .products-leave.products-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-out;
+  }

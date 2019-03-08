@@ -30,7 +30,7 @@ export default class Filter extends Component {
                           <div className="panel-body">
                             <ul>
                               <li><a href="#">Cups</a></li>
-                              <li><a href="#">Plates</a></li>
+                              <li><a href="#">Forks</a></li>
                             </ul>
                           </div>
                         </div>
@@ -45,13 +45,29 @@ export default class Filter extends Component {
                         <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                           <div className="panel-body">
                             <ul>
-                              <li><a href="#">Screens</a></li>
-                              <li><a href="#">Other</a></li>
+                              <li><a href="#">New</a></li>
+                              <li><a href="#">Used</a></li>
                             </ul>
                           </div>
                         </div>
                       </div>
 
+                      <div className="panel panel-default">
+                        <div className="panel-heading" role="tab" id="headingTwo">
+                          <h4 className="panel-title">
+                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Toys
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div className="panel-body">
+                            <ul>
+                              <li><a href="#">Balls</a></li>
+                              <li><a href="#">Cars</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
 
                     
 
