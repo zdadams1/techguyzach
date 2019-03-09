@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Products from "./pages/ProductsPage";
-import Signin from "./pages/SignIn";
+import Checkout from "./pages/Checkout";
 import NoMatch from "./pages/NoMatch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'semantic-ui-react'
@@ -44,7 +44,7 @@ class App extends Component {
         <Route exact path="/products/:id" component={Product}/>
         <Route exact path="/cart" component={Cart}/>
         <Route exact path="/products" component={Products}/>
-        <Route exact path="/signin" component={Signin}/>
+        <Route exact path="/checkout" component={Checkout}/>
         <Route component={NoMatch} />
         {/* <Route exact path="/books/:id" render={(props) => {
           return <Detail id={props.match.params.id}/>

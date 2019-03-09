@@ -6,6 +6,12 @@ const productsController = require("../../controllers/productsController");
 const db = require("../../models");
 const Cart = require("../../models/cart");
 
+const keySecret = 'sk_test_eELjza4IZKEvYTrjKbqaxsmU';
+const stripe = require("stripe")(keySecret);
+
+
+
+
 // Matches with "/api/books"
 // router.get("/", function(req, res) {
 //   db.Product
@@ -44,6 +50,35 @@ router.get('/remove/:id', function(req, res, next) {
   res.json(cart)
 });
 
+
+router.post("/charge",  (req, res, next) => {
+  console.log('hey')
+   console.log(req.body)
+   console.log(req.session.cart)
+  let amount = req.session.cart.totalPrice * 100;
+
+  var datas = req.session.cart;
+  var final =  [];
+for(var key in datas) {
+  for(var ney in datas[key]) {
+    final.push(datas[key][ney])
+  }
+}
+
+//  console.log(final)
+  //  stripe.customers.create({
+  //     email: req.body.email,
+  //    source: req.body.id
+  //  })
+  //  .then(customer =>
+  //    stripe.charges.create({
+  //      amount,
+  //      description: "Sample Charge",
+  //         currency: "usd",
+  //         customer: customer.id
+  //    }))
+   
+ });
 
 
 //Products Page Filter

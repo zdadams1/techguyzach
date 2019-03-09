@@ -3,11 +3,11 @@ import API from "../../utils/API";
 import Nav from "../../components/Nav";
 import StripeCheckout from 'react-stripe-checkout';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import './style.css'
+
 import axios from "axios";
 
 
-export default class Cart extends Component {
+export default class Checkout extends Component {
 
   state = {
     products: [],
@@ -49,9 +49,14 @@ export default class Cart extends Component {
     .catch(err => console.log(err));
   }
 
-  onToken = (token) => {
-    const newBody = JSON.stringify(token)
-    API.charged(token)
+  onToken = (token, args) => {
+    const newBody = args
+    const total = Math.round(this.state.products.totalPrice * 100) / 100
+    console.log(total)
+    console.log(args)
+    const myObj = { ...args, location: token}
+    console.log(myObj)
+   API.charged(myObj)
     // console.log(token)
     // fetch('/charge', {
     //   body: JSON.stringify(token),
@@ -79,7 +84,7 @@ export default class Cart extends Component {
                 <div className="row">
                   <div className="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                     <div className="slider-text-inner text-center">
-                      <h1>Shopping Cart</h1>
+                      <h1>Checkout</h1>
                      
                     </div>
                   </div>
@@ -99,7 +104,7 @@ export default class Cart extends Component {
                   <p><span>01</span></p>
                   <h3>Shopping Cart</h3>
                 </div>
-                <div className="process text-center">
+                <div className="process text-center active">
                   <p><span>02</span></p>
                   <h3>Checkout</h3>
                 </div>
@@ -126,17 +131,9 @@ export default class Cart extends Component {
                 <div className="one-eight text-center">
                   <span>Total</span>
                 </div>
-                <div className="one-eight text-center">
-                  <span>Remove</span>
-                </div>
               </div>
 
 
-              <CSSTransitionGroup
-                  transitionName="products"
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={300}
-                  >
               {this.state.cartData.map(item => (
                  
                  <div className="product-cart">
@@ -164,16 +161,11 @@ export default class Cart extends Component {
                        <span className="price">${ Math.round(item.price * 100) / 100 }</span>
                      </div>
                    </div>
-                   <div className="one-eight text-center">
-                     <div className="display-tc">
-                       <a onClick={() => this.deletProduct(item.item._id)} className="closed" />
-                     </div>
-                   </div>
                  </div>
                 
    
                    ))}
-                   </CSSTransitionGroup>
+                  
 
             </div>
           </div>
@@ -186,8 +178,8 @@ export default class Cart extends Component {
                     <form action="#">
                       <div className="row form-group">
                         <div className="col-md-3">
-                          <a href="/checkout" type="submit" defaultValue="Apply Coupon" className="btn btn-primary">Checkout</a> 
-                   
+                          {/* <button type="submit" defaultValue="Apply Coupon" className="btn btn-primary">Checkout</button> */}
+                         
                         </div>
                       </div>
                     </form>
@@ -195,7 +187,17 @@ export default class Cart extends Component {
                   <div className="col-md-3 col-md-push-1 text-center">
                     <div className="total">
                       <div className="grand-total">
+                        <p><span><strong>Shipping:</strong></span> <span>Free Shipping</span></p>
                         <p><span><strong>Total:</strong></span> <span>{NaN ? 0 : Math.round(this.state.products.totalPrice * 100) / 100}</span></p>
+                        <StripeCheckout
+                            name="Store"
+                            description="Checkout for Store"
+                            token={this.onToken}
+                            stripeKey="pk_test_QrjYsS7P6TuZ1U50buIljzBf"
+                            email="email@mail.com"
+                            currency="USD"
+                            amount={500}
+                          />
                       </div>
                     </div>
                   </div>

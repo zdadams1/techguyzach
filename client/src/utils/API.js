@@ -15,6 +15,9 @@ export default {
   getSess: function() {
     return axios.get("/api/items/cart");
   },
+  charged: function(body, myObj) {
+    return axios.post("/api/items/charge", body, myObj);
+  },
   reduceOne: function(id) {
     return axios.get("/api/items/remove/" + id);
   },
