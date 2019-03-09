@@ -6,8 +6,8 @@ const productsController = require("../../controllers/productsController");
 const db = require("../../models");
 const Cart = require("../../models/cart");
 
-const keySecret = 'sk_test_eELjza4IZKEvYTrjKbqaxsmU';
-const stripe = require("stripe")(keySecret);
+const keySecret = require('../../config/key');
+const stripe = require("stripe")(keySecret.stripe.keySecret);
 
 
 
@@ -65,18 +65,18 @@ for(var key in datas) {
   }
 }
 
-//  console.log(final)
-  //  stripe.customers.create({
-  //     email: req.body.email,
-  //    source: req.body.id
-  //  })
-  //  .then(customer =>
-  //    stripe.charges.create({
-  //      amount,
-  //      description: "Sample Charge",
-  //         currency: "usd",
-  //         customer: customer.id
-  //    }))
+ console.log(final)
+   stripe.customers.create({
+      email: req.body.email,
+     source: req.body.id
+   })
+   .then(customer =>
+     stripe.charges.create({
+       amount,
+       description: "Sample Charge",
+          currency: "usd",
+          customer: customer.id
+     }))
    
  });
 

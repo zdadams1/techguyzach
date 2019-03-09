@@ -56,7 +56,7 @@ export default class Checkout extends Component {
     console.log(args)
     const myObj = { ...args, location: token}
     console.log(myObj)
-   API.charged(myObj)
+   API.charged(token)
     // console.log(token)
     // fetch('/charge', {
     //   body: JSON.stringify(token),
@@ -194,9 +194,11 @@ export default class Checkout extends Component {
                             description="Checkout for Store"
                             token={this.onToken}
                             stripeKey="pk_test_QrjYsS7P6TuZ1U50buIljzBf"
-                            email="email@mail.com"
+                            email
                             currency="USD"
-                            amount={500}
+                            shippingAddress
+                            billingAddress
+                            amount={this.state.products.totalPrice * 100}
                           />
                       </div>
                     </div>
