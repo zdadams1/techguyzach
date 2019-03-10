@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
 import StripeCheckout from 'react-stripe-checkout';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
+
 
 import axios from "axios";
 
@@ -56,7 +57,11 @@ export default class Checkout extends Component {
     console.log(args)
     const myObj = { ...args, location: token}
     console.log(myObj)
-   API.charged(token)
+   
+    API.charged(token)
+    return browserHistory.push("/")
+
+
     // console.log(token)
     // fetch('/charge', {
     //   body: JSON.stringify(token),
@@ -69,6 +74,7 @@ export default class Checkout extends Component {
 
 
   render() {
+      console.log(this.state)
     
     return (
       <div>
@@ -188,7 +194,7 @@ export default class Checkout extends Component {
                     <div className="total">
                       <div className="grand-total">
                         <p><span><strong>Shipping:</strong></span> <span>Free Shipping</span></p>
-                        <p><span><strong>Total:</strong></span> <span>{NaN ? 0 : Math.round(this.state.products.totalPrice * 100) / 100}</span></p>
+                        <p><span><strong>Total:</strong></span> <span>{'NaN' ? (Math.round(this.state.products.totalPrice * 100) / 100) : 0}</span></p>
                         <StripeCheckout
                             name="Store"
                             description="Checkout for Store"

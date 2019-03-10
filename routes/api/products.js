@@ -77,7 +77,7 @@ for(var key in datas) {
           currency: "usd",
           customer: customer.id
      }))
-   
+   .then(res.redirect("/"))
  });
 
 

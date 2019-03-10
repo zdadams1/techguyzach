@@ -95,7 +95,7 @@ handleChocie = (id) => {
                 <div className="row">
                   <div className="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                     <div className="slider-text-inner text-center">
-                      <h1>Products</h1>
+                      <h1>Product</h1>
                     </div>
                   </div>
                 </div>

@@ -49,22 +49,17 @@ export default class Cart extends Component {
     .catch(err => console.log(err));
   }
 
-  onToken = (token) => {
-    const newBody = JSON.stringify(token)
-    API.charged(token)
-    // console.log(token)
-    // fetch('/charge', {
-    //   body: JSON.stringify(token),
-    // }).then(response => {
-    //   response.json().then(data => {
-    //     alert(`We are in business, ${data.email}`);
-    //   });
-    // });
+ cartCheck = () => {
+   console.log(this.state.cartData.length)
+   if(this.state.cartData.length != 'undefined') {
+      return "/checkout"
+   }else {
+     alert('Please add items to your cart before proceeding to check out. Thank you.')
   }
-
+}
 
   render() {
-    
+    console.log(this.state.cartData.length)
     return (
       <div>
         <Nav />
@@ -186,7 +181,13 @@ export default class Cart extends Component {
                     <form action="#">
                       <div className="row form-group">
                         <div className="col-md-3">
-                          <a href="/checkout" type="submit" defaultValue="Apply Coupon" className="btn btn-primary">Checkout</a> 
+
+                          {this.state.cartData.length <= 0 ?
+                          
+                            <h4>Please add items to cart before proceeding</h4> :
+
+                            <a href="/checkout" type="submit" defaultValue="Apply Coupon" className={this.state.cartData.length <= 0 ? 'disabled btn btn-primary' : 'btn btn-primary'  }>Checkout</a>
+                        } 
                    
                         </div>
                       </div>
@@ -195,7 +196,7 @@ export default class Cart extends Component {
                   <div className="col-md-3 col-md-push-1 text-center">
                     <div className="total">
                       <div className="grand-total">
-                        <p><span><strong>Total:</strong></span> <span>{NaN ? 0 : Math.round(this.state.products.totalPrice * 100) / 100}</span></p>
+                        <p><span><strong>Total:</strong></span> <span>{'NaN' ? (Math.round(this.state.products.totalPrice * 100) / 100) : 0}</span></p>
                       </div>
                     </div>
                   </div>
