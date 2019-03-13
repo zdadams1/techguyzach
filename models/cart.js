@@ -25,6 +25,14 @@ module.exports = function Cart(oldCart) {
         }
     };
 
+    this.removeAll = function() {
+        for(var i=0; i < this.items.length; i++) {
+            this.totalQty -= this.items[i].qty;
+            this.totalPrice -= this.items[i].price;
+            delete this.items[i];
+        }
+    };
+
     this.removeItem = function(id) {
         this.totalQty -= this.items[id].qty;
         this.totalPrice -= this.items[id].price;

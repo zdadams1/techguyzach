@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
 import StripeCheckout from 'react-stripe-checkout';
-
+import { Redirect } from "react-router-dom";
 
 
 import axios from "axios";
@@ -12,7 +12,8 @@ export default class Checkout extends Component {
 
   state = {
     products: [],
-    cartData: []
+    cartData: [],
+    fireRedirect: false
   };
   
   componentDidMount() {
@@ -51,16 +52,15 @@ export default class Checkout extends Component {
   }
 
   onToken = (token, args) => {
+      console.log('fired')
     const newBody = args
     const total = Math.round(this.state.products.totalPrice * 100) / 100
-    console.log(total)
-    console.log(args)
+    
     const myObj = { ...args, location: token}
-    console.log(myObj)
+    console.log(token)
    
     API.charged(token)
-    return browserHistory.push("/")
-
+    .then(this.setState({ fireRedirect: true }))
 
     // console.log(token)
     // fetch('/charge', {
@@ -78,6 +78,7 @@ export default class Checkout extends Component {
     
     return (
       <div>
+          {this.state.fireRedirect && <Redirect to='/orderComplete' push={true} />}
         <Nav />
      
       <div>

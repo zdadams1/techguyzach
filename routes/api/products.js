@@ -5,21 +5,11 @@ const csrfProtection = csrf();
 const productsController = require("../../controllers/productsController");
 const db = require("../../models");
 const Cart = require("../../models/cart");
-
+const mongoose = require("mongoose");
 const keySecret = require('../../config/key');
 const stripe = require("stripe")(keySecret.stripe.keySecret);
 
 
-
-
-// Matches with "/api/books"
-// router.get("/", function(req, res) {
-//   db.Product
-//     .find(req.query)
-//     .sort({ _id: -1 })
-//     .then(dbModel => res.json(dbModel))
-//     .catch(err => res.status(422).json(err));
-// });
 
 router.get("/", function(req, res) {
   console.log(req.session.id)
@@ -41,6 +31,7 @@ router.get("/cart", function(req, res) {
     res.json(cart);
 });
 
+//deletes from cart
 router.get('/remove/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -52,9 +43,9 @@ router.get('/remove/:id', function(req, res, next) {
 
 
 router.post("/charge",  (req, res, next) => {
-  console.log('hey')
-   console.log(req.body)
-   console.log(req.session.cart)
+  console.log('cart id')
+   console.log(req.session.id)
+   var cart = new Cart(req.session.cart ? req.session.cart : {});
   let amount = req.session.cart.totalPrice * 100;
 
   var datas = req.session.cart;
@@ -65,7 +56,7 @@ for(var key in datas) {
   }
 }
 
- console.log(final)
+//  console.log(final)
    stripe.customers.create({
       email: req.body.email,
      source: req.body.id
@@ -77,39 +68,50 @@ for(var key in datas) {
           currency: "usd",
           customer: customer.id
      }))
-   .then(res.redirect("/"))
+     req.session.cart = null
+
  });
 
 
-//Products Page Filter
+//Products Page Filter - Not used currently
 
-router.get("/lessThan", function(req, res) {
-  console.log(req.session.id)
+// router.get("/lessThan", function(req, res) {
+//   console.log(req.session.id)
   
-  db.Product.find({ price: {$lt: 100.00} },function (err, docs) {
+//   db.Product.find({ price: {$lt: 100.00} },function (err, docs) {
+    
+//   }).then(dbModel => res.json(dbModel))
+//     .catch(err => res.status(422).json(err));
+// });
+
+// router.get("/greatThan", function(req, res) {
+//   console.log(req.session.id)
+  
+//   db.Product.find({ price: {$gte: 100.00} },function (err, docs) {
+    
+//   }).then(dbModel => res.json(dbModel))
+//     .catch(err => res.status(422).json(err));
+// });
+
+
+//Filter by Category
+
+router.get("/category/:id", function(req, res) {
+  console.log(req.params.id)
+  var requestedCategory = req.params.id;
+
+  db.Product.find({ type: requestedCategory },function (err, docs) {
     
   }).then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
-});
 
-router.get("/greatThan", function(req, res) {
-  console.log(req.session.id)
-  
-  db.Product.find({ price: {$gte: 100.00} },function (err, docs) {
-    
-  }).then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
 });
  
 
-// Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(productsController.findById)
 
 //Individual Item view
 router.get('/item/:id', function(req, res) {
-  console.log(req.session.id)
+
   db.Product
     .findById(req.params.id)
     .then(dbModel => res.json(dbModel))
@@ -135,24 +137,5 @@ router.post('/:id', function(req, res, next) {
 });
  
 
-router.get('/sess', function(req, res){
-  console.log(req.session.id);
-  console.log('Okayyyyyyy');
-});
-
-
-// router.('/cart', function(req, res, next) {
-//   // console.log(req.session.id)
-//   console.log('req.session.cart')
-
-//   // !req.session.cart : res.json(null) ? 
-
-//   // if (!req.session.cart) {
-//   //     return res.render('shop/shopping-cart', {products: null});
-//   // } 
-//   //  var cart = new Cart(req.session.cart);
-//   //  res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
-//   //  sessions.findById(req.session.id).then(product => res.json(product))
-// });
 
 module.exports = router;

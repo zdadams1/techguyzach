@@ -29,8 +29,8 @@ export default class Filter extends Component {
                         <div id="collapseOne" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                           <div className="panel-body">
                             <ul>
-                              <li><a href="#">Cups</a></li>
-                              <li><a href="#">Forks</a></li>
+                            <li><a onClick={() => this.props.filters('cup')}>Cups</a></li>
+                            <li><a onClick={() => this.props.filters('fork')}>Forks</a></li>
                             </ul>
                           </div>
                         </div>
@@ -45,8 +45,8 @@ export default class Filter extends Component {
                         <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                           <div className="panel-body">
                             <ul>
-                              <li><a href="#">New</a></li>
-                              <li><a href="#">Used</a></li>
+                              <li><a onClick={() => this.props.filters('new')}>New</a></li>
+                              <li><a onClick={() => this.props.filters('used')}>Used</a></li>
                             </ul>
                           </div>
                         </div>
@@ -62,8 +62,8 @@ export default class Filter extends Component {
                         <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                           <div className="panel-body">
                             <ul>
-                              <li><a href="#">Balls</a></li>
-                              <li><a href="#">Cars</a></li>
+                              <li><a onClick={() => this.props.filters('figure')}>Figurines</a></li>
+                              <li><a onClick={() => this.props.filters('other')}>Other</a></li>
                             </ul>
                           </div>
                         </div>
@@ -77,22 +77,22 @@ export default class Filter extends Component {
                 <div className="side">
                   <h2>Price Range</h2>
                   <div className="form-check">
-                        <input className="form-check-input" type="radio" name="filter" id="all" defaultValue="option1"
-                            defaultChecked onChange={() => this.props.loadProducts()}  />
+                         <input className="form-check-input" type="radio" name="filter" id="all" value="all"
+                            checked={this.props.selected1}  onChange={() => this.props.reLoadAllProducts()}  />
                         <label className="form-check-label" htmlFor="exampleRadios1">
                             All
-                        </label>
+                        </label> 
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="filter" id="under" defaultValue="option2"
-                           onChange={() => this.props.lessThan()}   />
+                        <input className="form-check-input" type="radio" name="filter" id="under" value="lessThan"
+                           checked={this.props.selected2} onChange={() => this.props.lessThan()}   />
                         <label className="form-check-label" htmlFor="exampleRadios1">
                             Under $100
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="filter" id="over" defaultValue="option3"  
-                        onChange={() => this.props.greatThan()}
+                        <input className="form-check-input" type="radio" name="filter" id="over" value="greatThan"  
+                         checked={this.props.selected3} onChange={() => this.props.greatThan()}
                         />
                         <label className="form-check-label" htmlFor="exampleRadios2">
                             Over $100

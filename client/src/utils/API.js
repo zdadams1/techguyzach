@@ -18,13 +18,13 @@ export default {
   charged: function(body, myObj) {
     return axios.post("/api/items/charge", body, myObj);
   },
+  filtered: function(id) {
+    return axios.get("/api/items/category/" + id);
+  },
   reduceOne: function(id) {
     return axios.get("/api/items/remove/" + id);
   },
   lessThanHundred: function() {
     return axios.get("/api/items/lessThan");
-  },
-  greatThanHundred: function() {
-    return axios.get("/api/items/greatThan");
   }
 };
