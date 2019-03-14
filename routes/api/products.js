@@ -135,6 +135,19 @@ router.post('/:id', function(req, res, next) {
       
   });
 });
+
+router.put('/reduce/:id', function(req, res, next) {
+  // console.log(req.session.id);
+  console.log('fired')
+  var productId = req.params.id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+      cart.reduceByOne(productId);
+       req.session.cart = cart;
+       req.session.save()
+
+
+});
+
  
 
 

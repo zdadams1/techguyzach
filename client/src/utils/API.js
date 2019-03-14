@@ -21,6 +21,9 @@ export default {
   filtered: function(id) {
     return axios.get("/api/items/category/" + id);
   },
+  reduced: function(id) {
+    return axios.put("/api/items/reduce/" + id);
+  },
   reduceOne: function(id) {
     return axios.get("/api/items/remove/" + id);
   },

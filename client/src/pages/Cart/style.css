@@ -16,13 +16,12 @@
     transition: opacity 300ms ease-out;
   }
 
-/* 
+
   .qty .count {
     color: #000;
     display: inline-block;
     vertical-align: top;
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 15px;
     line-height: 30px;
     padding: 0 2px
     ;min-width: 35px;
@@ -33,9 +32,10 @@
     display: inline-block;
     vertical-align: top;
     color: black;
+    padding-top: 5px;
     width: 30px;
     height: 30px;
-    font: 30px/1 Arial,sans-serif;
+    font: 20px Arial,sans-serif;
     text-align: center;
     border-radius: 50%;
     transition: all .4s ease;
@@ -79,4 +79,4 @@ input::-webkit-inner-spin-button {
 }
 input:disabled{
     background-color:white;
-}   */
+}  

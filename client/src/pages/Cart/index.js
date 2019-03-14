@@ -63,27 +63,13 @@ export default class Cart extends Component {
   }
 }
 
-addOne = (evt, id) => {
-console.log(evt.target.value)
-console.log(id)
 
-var final = []
+addOne = (id) => {
+  API.saveCart(id)
+}
 
-final.push({'id': id, 'val': evt.target.value})
-this.setState({ qtyUpdate: final})
-console.log(this.state.qtyUpdate)
-//   var datas = data.items;
-//   var final =  [];
-// for(var key in datas) {
-//   // console.log(datas.hasOwnProperty(key))
-//   // console.log(key)
-//   // console.log(datas[key])
-//   final.push(datas[key])
-// }
-//   this.setState({ cartData: final})
-  
-  // API.saveCart(id)
-  // this.setState({ cartData: this.state.cartData[index].qty + 1})
+removeOne = (id) => {
+  API.reduced(id)
 }
 
 
@@ -98,7 +84,7 @@ console.log(this.state.qtyUpdate)
         />
      
       <div>
-         <aside id="colorlib-hero" className="breadcrumbs">
+         {/* <aside id="colorlib-hero" className="breadcrumbs">
         <div className="flexslider">
           <ul className="slides">
             <li style={{backgroundImage: 'url(https://images.pexels.com/photos/210588/pexels-photo-210588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'}}>
@@ -116,7 +102,7 @@ console.log(this.state.qtyUpdate)
             </li>
           </ul>
         </div>
-      </aside>
+      </aside> */}
 
       <div className="colorlib-shop">
         <div className="container">
@@ -167,7 +153,7 @@ console.log(this.state.qtyUpdate)
                   >
               {this.state.cartData.map((item, i) => (
                  
-                 <div className="product-cart">
+                 <div className="product-cart" key={item.item._id}>
                 
                    <div className="one-forth">
                      <a href={'products/' + item.item._id}>
@@ -185,18 +171,15 @@ console.log(this.state.qtyUpdate)
                    </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
-                       {/* <input type="text" id="quantity" name="quantity" className="form-control input-number text-center" defaultValue={item.qty} min={1} max={100} /> */}
-
-                       <div className="qty mt-5">
-                       
-                       {item.qty <= 1 ? '' 
-                       : 
-                       <span className="minus bg-dark">-</span>
-                       }
-                          <input id="numInc" type="number" className="count" name="qty" defaultValue={item.qty} onChange={evt => this.addOne(evt, item.item._id)}  min={1} max={100}  />
+                      
+                     <div className="qty mt-5">
+                        <a href="/cart" onClick={() => this.removeOne(item.item._id)}><span className="minus bg-dark">-</span></a>
+                        <input type="number" className="count" name="qty" value={item.qty}/>
+                        <a href="/cart" onClick={() => this.addOne(item.item._id)}><span className="plus bg-dark">+</span></a>
+                    </div>
                         </div>
+                       
                      </div>
-                   </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
                        <span className="price">${ Math.round(item.price * 100) / 100 }</span>
@@ -208,7 +191,6 @@ console.log(this.state.qtyUpdate)
                      </div>
                    </div>
                  </div>
-                
    
                    ))}
                    </CSSTransitionGroup>
@@ -242,9 +224,7 @@ console.log(this.state.qtyUpdate)
                   </div>
                   <div className="col-md-4">
                         <div className="row">
-                          <div className="col-md-3">
-                              <a href="/checkout" type="submit" defaultValue="Apply Coupon" className={this.state.cartData.length <= 0 ? 'disabled btn btn-primary' : 'btn btn-primary'  }>Update Qty</a>
-                          </div>
+                         
                         </div>
                   </div>
                   <div className="col-md-3 col-md-push-1 text-center">
