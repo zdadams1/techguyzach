@@ -13,7 +13,8 @@ export default class ProductPage extends Component {
     orginalProducts: [],
     leftOvers: [],
     count: 0,
-    selected1: true
+    selected1: 'defaultedChecked',
+    productsPage: 'active'
   };
 
   componentDidMount() {
@@ -67,59 +68,68 @@ filters = (category) => {
 
   console.log(category)
 
-  API.filtered(category)
+  if(category === 'random') {
+    this.loadProducts()
+  }else if(category === 'more') {
+    API.getProducts()
+    .then(res => 
+      this.setState({ products: this.state.products.concat(res.data)}))
+    .catch(err => console.log(err))
+  }else {
+    API.filtered(category)
   .then(res =>
     this.setState({ products: res.data, orginalProducts: res.data }))
   .catch(err => console.log(err))
+  }
 };
   
-  lessThan = () => {
-    this.setState({ currRange: 'lessThen' })
-    const lessThen = this.state.products.filter(word => word.price < 100)
-    const greatThen = this.state.products.filter(word => word.price > 100)
+  // lessThan = () => {
+  //   this.setState({ currRange: 'lessThen' })
+  //   const lessThen = this.state.products.filter(word => word.price < 100)
+  //   const greatThen = this.state.products.filter(word => word.price > 100)
 
-    if(this.state.leftOvers.length <= 0) {
-      this.setState({ products: lessThen })
-      this.setState({ leftOvers: greatThen })
-    }else {
-      this.setState({ products: this.state.leftOvers })
-      this.setState({ leftOvers: greatThen })
-    }
+  //   if(this.state.leftOvers.length <= 0) {
+  //     this.setState({ products: lessThen })
+  //     this.setState({ leftOvers: greatThen })
+  //   }else {
+  //     this.setState({ products: this.state.leftOvers })
+  //     this.setState({ leftOvers: greatThen })
+  //   }
     
-  };
+  // };
 
-  greatThan = (opt) => {
-    const greatThen = this.state.products.filter(word => word.price > 100)
-    const lessThen = this.state.products.filter(word => word.price < 100)
+  // greatThan = (opt) => {
+  //   const greatThen = this.state.products.filter(word => word.price > 100)
+  //   const lessThen = this.state.products.filter(word => word.price < 100)
 
-    if(this.state.leftOvers.length <= 0) {
-      this.setState({ products: greatThen })
-      this.setState({ leftOvers: lessThen })
-    }else {
-      this.setState({ products: this.state.leftOvers })
-      this.setState({ leftOvers: lessThen })
-    }
+  //   if(this.state.leftOvers.length <= 0) {
+  //     this.setState({ products: greatThen })
+  //     this.setState({ leftOvers: lessThen })
+  //   }else {
+  //     this.setState({ products: this.state.leftOvers })
+  //     this.setState({ leftOvers: lessThen })
+  //   }
     
-  };
+  // };
 
-  reLoadAllProducts = () => {
-    this.setState({ products: this.state.orginalProducts })
-  }
+  // reLoadAllProducts = () => {
+  //   this.setState({ products: this.state.orginalProducts })
+  // }
 
-  priceFilter = (range) => {
-    console.log(range)
-    this.setState({ radioBtn2: null })
-    var greatThen = this.state.products.filter(word => word.price > 100)
-    var lessThen = this.state.products.filter(word => word.price < 100)
+  // priceFilter = (range) => {
+  //   console.log(range)
+  //   this.setState({ radioBtn2: null })
+  //   var greatThen = this.state.products.filter(word => word.price > 100)
+  //   var lessThen = this.state.products.filter(word => word.price < 100)
 
    
 
-    if(range === 'lessthen') {
-      this.setState({ products: lessThen })
-    }else if (range === 'greatThen') {
-      this.setState({ products: greatThen })
-    }
-  }
+  //   if(range === 'lessthen') {
+  //     this.setState({ products: lessThen })
+  //   }else if (range === 'greatThen') {
+  //     this.setState({ products: greatThen })
+  //   }
+  // }
 
 
   
@@ -130,7 +140,10 @@ filters = (category) => {
       return (
 
         <div>
-          <Nav totaler={this.state.count} />
+          <Nav 
+          totaler={this.state.count}
+          productsPage={this.state.productsPage}
+           />
        
         <div>
 
@@ -180,11 +193,8 @@ filters = (category) => {
            
             </div>
               <Filter
-              greatThan={this.greatThan}
-              lessThan={this.lessThan}
-              reLoadAllProducts={this.reLoadAllProducts}
+             
               filters={this.filters}
-              checked={this.state.selected1}
               />
             
           </div>

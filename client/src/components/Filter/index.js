@@ -17,16 +17,32 @@ export default class Filter extends Component {
                   <h2>Categories</h2>
                   <div className="fancy-collapse-panel">
                     <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                      <div className="panel panel-default">
+                    <div className="panel panel-default">
                         <div className="panel-heading" role="tab" id="headingOne">
                           <h4 className="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Kitchen
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">All
                             
                             </a>
                         
                           </h4>
                         </div>
                         <div id="collapseOne" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                          <div className="panel-body">
+                            <ul>
+                            <li><a onClick={() => this.props.filters('random')}>Random</a></li>
+                            <li><a onClick={() => this.props.filters('more')}>Load More</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="panel panel-default">
+                        <div className="panel-heading" role="tab" id="headingTwo">
+                          <h4 className="panel-title">
+                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Kitchen
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                           <div className="panel-body">
                             <ul>
                             <li><a onClick={() => this.props.filters('cup')}>Cups</a></li>
@@ -36,13 +52,13 @@ export default class Filter extends Component {
                         </div>
                       </div>
                       <div className="panel panel-default">
-                        <div className="panel-heading" role="tab" id="headingTwo">
+                        <div className="panel-heading" role="tab" id="headingThree">
                           <h4 className="panel-title">
-                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Electronics
+                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Electronics
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                           <div className="panel-body">
                             <ul>
                               <li><a onClick={() => this.props.filters('new')}>New</a></li>
@@ -53,13 +69,13 @@ export default class Filter extends Component {
                       </div>
 
                       <div className="panel panel-default">
-                        <div className="panel-heading" role="tab" id="headingTwo">
+                        <div className="panel-heading" role="tab" id="headingFour">
                           <h4 className="panel-title">
-                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Toys
+                            <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapsFour">Toys
                             </a>
                           </h4>
                         </div>
-                        <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseFour" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                           <div className="panel-body">
                             <ul>
                               <li><a onClick={() => this.props.filters('figure')}>Figurines</a></li>
@@ -74,7 +90,7 @@ export default class Filter extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="side">
+                {/* <div className="side">
                   <h2>Price Range</h2>
                   <div className="form-check">
                          <input className="form-check-input" type="radio" name="filter" id="all" value="all"
@@ -98,7 +114,7 @@ export default class Filter extends Component {
                             Over $100
                         </label>
                     </div>
-                </div>
+                </div> */}
               
                 {/* <div className="side">
                   <h2>Size</h2>

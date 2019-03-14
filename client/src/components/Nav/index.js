@@ -44,12 +44,12 @@ console.log('meNav ' + this.state.cart.cart)
                    <li className={activeClass("/")}><a href="/">About</a></li>
                   <li className={activeClass("/")}><a href="/">Contact</a></li> 
                   <li className={activeClass("/cart")}><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li> */}
-                  <li><a href="/">Home</a></li>
+                  <li className={this.props.homePage}><a href="/">Home</a></li>
                   
-                  <li ><a href="/products">Shop</a></li>
-                   <li><a href="/">About</a></li>
-                  <li><a href="/">Contact</a></li> 
-                  <li ><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li>
+                  <li className={this.props.productsPage}><a href="/products">Shop</a></li>
+                   {/* <li><a href="/">About</a></li>
+                  <li><a href="/">Contact</a></li>  */}
+                  <li className={this.props.cartPage} ><a href="/cart"><i className="icon-shopping-cart" /> Cart {this.props.totaler} </a></li>
                 </ul>
               </div>
             </div>

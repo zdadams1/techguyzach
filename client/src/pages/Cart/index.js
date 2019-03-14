@@ -5,17 +5,22 @@ import StripeCheckout from 'react-stripe-checkout';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './style.css'
 import axios from "axios";
+import $ from 'jquery';
 
 
 export default class Cart extends Component {
 
   state = {
     products: [],
-    cartData: []
+    cartData: [],
+    cartPage: 'active',
+    qtyUpdate: []
   };
   
   componentDidMount() {
     this.loadProducts();
+
+  
   }
 
   loadProducts = () => {
@@ -58,11 +63,39 @@ export default class Cart extends Component {
   }
 }
 
+addOne = (evt, id) => {
+console.log(evt.target.value)
+console.log(id)
+
+var final = []
+
+final.push({'id': id, 'val': evt.target.value})
+this.setState({ qtyUpdate: final})
+console.log(this.state.qtyUpdate)
+//   var datas = data.items;
+//   var final =  [];
+// for(var key in datas) {
+//   // console.log(datas.hasOwnProperty(key))
+//   // console.log(key)
+//   // console.log(datas[key])
+//   final.push(datas[key])
+// }
+//   this.setState({ cartData: final})
+  
+  // API.saveCart(id)
+  // this.setState({ cartData: this.state.cartData[index].qty + 1})
+}
+
+
+
   render() {
-    console.log(this.state.cartData.length)
+   
     return (
       <div>
-        <Nav />
+        <Nav 
+        totaler={this.state.count}
+        cartPage={this.state.cartPage}
+        />
      
       <div>
          <aside id="colorlib-hero" className="breadcrumbs">
@@ -132,9 +165,10 @@ export default class Cart extends Component {
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={300}
                   >
-              {this.state.cartData.map(item => (
+              {this.state.cartData.map((item, i) => (
                  
                  <div className="product-cart">
+                
                    <div className="one-forth">
                      <a href={'products/' + item.item._id}>
                      <div className="product-img" style={{backgroundImage: `url(images/${item.item.imageMain})`}}>
@@ -151,7 +185,16 @@ export default class Cart extends Component {
                    </div>
                    <div className="one-eight text-center">
                      <div className="display-tc">
-                       <input type="text" id="quantity" name="quantity" className="form-control input-number text-center" defaultValue={item.qty} min={1} max={100} />
+                       {/* <input type="text" id="quantity" name="quantity" className="form-control input-number text-center" defaultValue={item.qty} min={1} max={100} /> */}
+
+                       <div className="qty mt-5">
+                       
+                       {item.qty <= 1 ? '' 
+                       : 
+                       <span className="minus bg-dark">-</span>
+                       }
+                          <input id="numInc" type="number" className="count" name="qty" defaultValue={item.qty} onChange={evt => this.addOne(evt, item.item._id)}  min={1} max={100}  />
+                        </div>
                      </div>
                    </div>
                    <div className="one-eight text-center">
@@ -177,7 +220,7 @@ export default class Cart extends Component {
             <div className="col-md-10 col-md-offset-1">
               <div className="total-wrap">
                 <div className="row">
-                  <div className="col-md-8">
+                  <div className="col-md-4">
                     <form action="#">
                       <div className="row form-group">
                         <div className="col-md-3">
@@ -186,12 +229,23 @@ export default class Cart extends Component {
                           
                             <h4>Please add items to cart before proceeding</h4> :
 
-                            <a href="/checkout" type="submit" defaultValue="Apply Coupon" className={this.state.cartData.length <= 0 ? 'disabled btn btn-primary' : 'btn btn-primary'  }>Checkout</a>
+                            <div>
+                              <a href="/checkout" type="submit" defaultValue="Apply Coupon" className={this.state.cartData.length <= 0 ? 'disabled btn btn-primary' : 'btn btn-primary'  }>Checkout</a>
+
+                              
+                            </div>
                         } 
                    
                         </div>
                       </div>
                     </form>
+                  </div>
+                  <div className="col-md-4">
+                        <div className="row">
+                          <div className="col-md-3">
+                              <a href="/checkout" type="submit" defaultValue="Apply Coupon" className={this.state.cartData.length <= 0 ? 'disabled btn btn-primary' : 'btn btn-primary'  }>Update Qty</a>
+                          </div>
+                        </div>
                   </div>
                   <div className="col-md-3 col-md-push-1 text-center">
                     <div className="total">

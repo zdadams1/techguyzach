@@ -10,7 +10,7 @@ class Home extends Component {
     products: [],
     cart: [],
     count: 0,
-    
+    homePage: 'active'
   };
 
   componentDidMount() {
@@ -61,7 +61,10 @@ handleChocie = (id) => {
     return (
         
        <div>
-        <Nav totaler={this.state.count} />
+        <Nav 
+        totaler={this.state.count}
+        homePage={this.state.homePage}
+        />
         <HomeHeader />
         <div className="colorlib-shop">
 			<div className="container">
