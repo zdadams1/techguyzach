@@ -35,7 +35,7 @@ router.get("/cart", function(req, res) {
 router.get('/remove/:id', function(req, res, next) {
   var productId = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
-
+  console.log(productId)
   cart.removeItem(productId);
   req.session.cart = cart;
   res.json(cart)
@@ -48,13 +48,16 @@ router.post("/charge",  (req, res, next) => {
    var cart = new Cart(req.session.cart ? req.session.cart : {});
   let amount = req.session.cart.totalPrice * 100;
 
-  var datas = req.session.cart;
-  var final =  [];
-for(var key in datas) {
-  for(var ney in datas[key]) {
-    final.push(datas[key][ney])
-  }
-}
+
+  
+
+  // var datas = req.session.cart;
+//   var final =  [];
+// for(var key in datas) {
+//   for(var ney in datas[key]) {
+//     final.push(datas[key][ney])
+//   }
+// }
 
 //  console.log(final)
    stripe.customers.create({
@@ -68,6 +71,7 @@ for(var key in datas) {
           currency: "usd",
           customer: customer.id
      }))
+     req.session.destroy()
      req.session.cart = null
 
  });

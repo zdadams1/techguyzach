@@ -173,7 +173,11 @@ removeOne = (id) => {
                      <div className="display-tc">
                       
                      <div className="qty mt-5">
+                        {item.qty <= 1
+                        ? ''
+                        :
                         <a href="/cart" onClick={() => this.removeOne(item.item._id)}><span className="minus bg-dark">-</span></a>
+                        }
                         <input type="number" className="count" name="qty" value={item.qty}/>
                         <a href="/cart" onClick={() => this.addOne(item.item._id)}><span className="plus bg-dark">+</span></a>
                     </div>
@@ -230,7 +234,7 @@ removeOne = (id) => {
                   <div className="col-md-3 col-md-push-1 text-center">
                     <div className="total">
                       <div className="grand-total">
-                        <p><span><strong>Total:</strong></span> <span>{'NaN' ? (Math.round(this.state.products.totalPrice * 100) / 100) : 0}</span></p>
+                        <p><span><strong>Total:</strong></span> <span>{isNaN(this.state.products.totalPrice) ? 0 : (Math.round(this.state.products.totalPrice * 100) / 100)}</span></p>
                       </div>
                     </div>
                   </div>
