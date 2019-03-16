@@ -469,7 +469,8 @@ h1, h2, h3, h4, h5, h6, figure {
   #colorlib-featured-product .desc h2 {
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 13px;
+    margin-right: 48rem;
     margin-bottom: 0;
     line-height: 1.5; }
 

@@ -6,7 +6,7 @@ const app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-
+const dataBase = require('./config/key');
 
 
 
@@ -18,13 +18,13 @@ app.use(express.json());
 
 // Serve up static assets - Connects React to Backend - 
 if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("client/public"));
-  app.use(express.static("client/build"));
-}
+  //  app.use(express.static("client/public"));
+    app.use(express.static("client/build"));
+ }
 
 // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/thestore", { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI || "mongodb://ctw:password1@ds049744.mlab.com:49744/heroku_jhpb9hnt", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || dataBase.mongoL.url, { useNewUrlParser: true });
 
 
 // Sessions
