@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
 export default class TakeMoney extends React.Component {
-  onToken = (token) => {
+  onToken = token => {
     fetch('/save-stripe-token', {
       method: 'POST',
-      body: JSON.stringify(token),
+      body: JSON.stringify(token)
     }).then(response => {
       response.json().then(data => {
         alert(`We are in business, ${data.email}`);
       });
     });
-  }
+  };
 
   // ...
 
@@ -20,10 +20,10 @@ export default class TakeMoney extends React.Component {
       // ...
       <StripeCheckout
         token={this.onToken}
-        stripeKey="pk_test_QrjYsS7P6TuZ1U50buIljzBf"
-        email="wickersham.craig@gmail.com"
-        currency="USD"
+        stripeKey='pk_live_EaFIYb5kp0eSOnjAGwCL21PS'
+        email='zdadams1@gmail.com'
+        currency='USD'
       />
-    )
+    );
   }
 }
