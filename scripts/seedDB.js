@@ -14,7 +14,8 @@ const productSeed = [
     price: 30.0,
     description:
       '$30 for 30 minutes of tutoring in Chemistry, Physics, Math, or Software Engineering',
-    type: 'new'
+    type: 'new',
+    imageMain: 'tutor1.png'
   },
   {
     name: 'Base Power PC',
@@ -22,7 +23,8 @@ const productSeed = [
     description:
       'GeForce GTX 1660 6GB, 16GB DDR4 3200, Intel i5-9400F, 500GB SSD.',
 
-    type: 'new'
+    type: 'new',
+    imageMain: 'desktop.png'
   },
   {
     name: 'Ultimate Power PC',
@@ -30,7 +32,8 @@ const productSeed = [
     description:
       'GeForce RTX 2060 6GB, 32GB DDR4 3200, Intel i7-9700K, 500GB SSD.',
 
-    type: 'new'
+    type: 'new',
+    imageMain: 'desktop.png'
   },
   {
     name: 'Intermediate Power PC',
@@ -38,27 +41,32 @@ const productSeed = [
     description:
       'GeForce GTX 1660 6GB, 32GB DDR4 3200, Intel i5-9600K, 500GB SSD.',
 
-    type: 'new'
+    type: 'new',
+    imageMain: 'desktop.png'
   },
   {
     name: 'Advertising',
     price: 500.0,
-    description: 'Promote your business for $500/month.'
+    description: 'Promote your business for $500/month.',
+    imageMain: 'fbad.png'
   },
   {
     name: 'Website',
     price: 800.0,
-    description: 'Full working website for your business.'
+    description: 'Full working website for your business.',
+    imageMain: 'website.png'
   },
   {
     name: 'Landing Page',
     price: 400.0,
-    description: 'Attract more customers with a stylish and efficient page.'
+    description: 'Attract more customers with a stylish and efficient page.',
+    imageMain: 'website.png'
   },
   {
     name: 'Mobile App',
     price: 1000.0,
-    description: 'Custom mobile app for your business.'
+    description: 'Custom mobile app for your business.',
+    imageMain: 'app.png'
   }
 ];
 
