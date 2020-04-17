@@ -1,0 +1,62 @@
+.app-footer {
+  list-style-type: none;
+  margin: auto;
+  background-color: #050a05;
+  position: bottom;
+  height: 4em;
+  position: fixed;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer-menu {
+  display: inline;
+  position: row;
+}
+
+.footer-menu li {
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.f-btn {
+  width: 3em;
+  height: 1em;
+  border-radius: 0.5em;
+  background-color: rgb(255, 255, 255, 0.05);
+}
+
+.footer-button {
+  margin-top: 2em;
+}
+
+.f-coins {
+  text-decoration: none;
+  color: gold;
+  margin-right: 1.5em;
+}
+
+@media (max-width: 480px) {
+  .footer-menu {
+  }
+}
+
+@media (max-width: 599px) {
+  .footer-menu {
+    margin-left: 0em;
+  }
+  .f-btn {
+    margin-left: -1em;
+  }
+}
+
+@media (min-width: 600px) {
+  .footer-menu {
+    margin-left: 3em;
+  }
+  .f-btn {
+    margin-left: -4em;
+  }
+}

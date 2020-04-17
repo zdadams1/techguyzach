@@ -2132,6 +2132,16 @@ input[type='text'] {
   padding: 14px;
 }
 
+.nav-logo {
+  width: 8em;
+  height: 3em;
+  border-radius: 1em;
+}
+
+.name {
+  font-size: 0.8em;
+}
+
 #colorlib-footer {
   padding: 0 0 0 0;
   margin-left: 4em;
@@ -2157,7 +2167,19 @@ input[type='text'] {
   margin: 0 0 0 0;
   list-style: none;
   display: block;
+  margin-left: -2em;
 }
+@media (max-width: 800px) {
+  .footer {
+    margin-left: -2em;
+  }
+}
+@media (min-width: 780px) and (max-width: 950px) {
+  .footer {
+    margin-left: -10em;
+  }
+}
+
 #colorlib-footer .colorlib-footer-links li a {
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
@@ -2180,7 +2202,7 @@ input[type='text'] {
   letter-spacing: 1px;
 }
 #colorlib-footer .copy {
-  padding: 2em 0;
+  padding: 0 0;
 }
 #colorlib-footer .copy p {
   margin-bottom: 0;

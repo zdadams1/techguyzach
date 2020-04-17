@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
+import complogo from '../../images/complogo.jpg';
 
 export default class Nav extends Component {
   state = {
     count: 3,
-    cart: []
+    cart: [],
   };
 
   componentDidMount() {
@@ -13,8 +14,8 @@ export default class Nav extends Component {
 
   loadProducts = () => {
     API.getSess()
-      .then(res => this.setState({ cart: res.data }))
-      .catch(err => console.log(err));
+      .then((res) => this.setState({ cart: res.data }))
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -27,7 +28,9 @@ export default class Nav extends Component {
             <div className='row'>
               <div className='col-xs-2'>
                 <div id='colorlib-logo'>
-                  <a href='/'>Tech Guy Zach</a>
+                  <a href='/' className='name'>
+                    <img src={complogo} className='nav-logo' />
+                  </a>
                 </div>
               </div>
               <div className='col-xs-10 text-right menu-1'>
@@ -44,6 +47,9 @@ export default class Nav extends Component {
 
                   {/* <li><a href="/">About</a></li>
                   <li><a href="/">Contact</a></li>  */}
+                  <li className='header-blog'>
+                    <a href='/apps'>Apps</a>
+                  </li>
                   <li className={this.props.cartPage}>
                     <a href='/cart'>
                       <i className='icon-shopping-cart' /> Cart{' '}
