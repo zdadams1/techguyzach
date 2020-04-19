@@ -107,4 +107,6 @@ body {
 .apps img {
   border-radius: 1em;
   margin-bottom: 2em;
+  width: 10em;
+  height: 10em;
 }
