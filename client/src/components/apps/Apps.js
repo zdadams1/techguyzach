@@ -15,28 +15,37 @@ export default class Apps extends Component {
             <p>My custom built Applications.</p>
           </div>
         </div>
-        <div className='card apps-jobtrade'>
-          <div className='card-body'>
+        <ul className='apps'>
+          <li>
             <img src={jtlogo} />
+          </li>
+          <li>
             <h1>JobTrade</h1>
+          </li>
+          <li>
             <p>Buy, Sell, Work and chat with people in your area.</p>
-          </div>
-        </div>
-        <div className='card apps-blockstar'>
-          <div className='card-body'>
+          </li>
+          <li>
             <img src={blockstarlogo} />
+          </li>
+          <li>
             <h1>Blockstar</h1>
+          </li>
+          <li>
             <p>Earn points for lining up 4 colors in a row.</p>
-          </div>
-        </div>
-        <div className='card apps-donate'>
-          <div className='card-body'>
-            <h1>Coming Soon!</h1>
-            <a href='https://paypal.me/hypenac' className='donate-btn'>
-              Donate
-            </a>
-          </div>
-        </div>
+          </li>
+          <li>
+            {' '}
+            <div className='card apps-donate'>
+              <div className='card-body'>
+                <h1>Coming Soon!</h1>
+                <a href='https://paypal.me/hypenac' className='donate-btn'>
+                  Donate
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     );
   }
