@@ -6,10 +6,13 @@ class Footer extends Component {
   render() {
     const footer = (
       <ul className='footer-menu'>
-        <li className='footer-button'>
-          <Link className='f-coins f-btn' to='/about'>
-            About <i className='fas fa-user' />
-          </Link>
+        <li className='footer-item'>
+          <h3>Info</h3>
+          <p>
+            My name is Zach Adams and I make Computers and software to make
+            lives better.
+          </p>
+          <p>zach@techguyzach.com</p>
         </li>
       </ul>
     );

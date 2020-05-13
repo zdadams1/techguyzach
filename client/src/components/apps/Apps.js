@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import jtlogo from '../../images/jt-logo.png';
 import blockstarlogo from '../../images/blockstar-logo.png';
+import planmelogo from '../../images/planmelogo.png';
 import Nav from '../Nav';
 import './apps.css';
 
@@ -35,6 +36,15 @@ export default class Apps extends Component {
             </li>
             <li>
               <p>Earn points for lining up 4 colors in a row.</p>
+            </li>
+            <li>
+              <img src={planmelogo} />
+            </li>
+            <li>
+              <h1>PlanMe</h1>
+            </li>
+            <li>
+              <p>Plan your life with my special software.</p>
             </li>
             <li>
               {' '}

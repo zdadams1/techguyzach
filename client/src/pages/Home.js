@@ -3,13 +3,14 @@ import API from '../utils/API';
 import Products from '../components/Products';
 import HomeHeader from '../components/HomeHeader';
 import Nav from '../components/Nav';
+import Footer from '../components/footer/Footer';
 
 class Home extends Component {
   state = {
     products: [],
     cart: [],
     count: 0,
-    homePage: 'active'
+    homePage: 'active',
   };
 
   componentDidMount() {
@@ -19,19 +20,19 @@ class Home extends Component {
 
   loadProducts = () => {
     API.getProducts()
-      .then(res => this.setState({ products: res.data }))
-      .catch(err => console.log(err));
+      .then((res) => this.setState({ products: res.data }))
+      .catch((err) => console.log(err));
   };
 
   // -------Cart Stuff --------------------
 
   setNavCart = () => {
     API.getSess()
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
-  cartArray = data => {
+  cartArray = (data) => {
     var datas = data.items;
     var work = 0;
     for (var key in datas) {
@@ -44,7 +45,7 @@ class Home extends Component {
     this.setState({ count: work });
   };
 
-  handleChocie = id => {
+  handleChocie = (id) => {
     API.saveCart(id);
     this.setState({ count: this.state.count + 1 });
     alert('Added to Cart!');
@@ -59,7 +60,7 @@ class Home extends Component {
         <div className='colorlib-shop'>
           <div className='container'>
             <div className='row'>
-              {this.state.products.map(product => (
+              {this.state.products.map((product) => (
                 <Products
                   key={product._id}
                   id={product._id}
@@ -73,6 +74,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
