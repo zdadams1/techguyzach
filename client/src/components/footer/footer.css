@@ -31,7 +31,15 @@
 }
 
 .footer-button {
-  margin-top: 2em;
+  margin-top: 1em;
+}
+
+.show-form {
+  margin-top: -1em;
+}
+
+.email {
+  margin-bottom: 1.5em;
 }
 
 .f-coins {

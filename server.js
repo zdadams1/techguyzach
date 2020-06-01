@@ -5,6 +5,7 @@ const routes = require('./routes');
 const app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
+const message = require('./routes/api/message');
 var MongoStore = require('connect-mongo')(session);
 
 const PORT = process.env.PORT || 3001;
@@ -26,10 +27,10 @@ const db = require('./config/keys').mongoURI;
 // Connect to MongoDB
 mongoose
   .connect('mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams', {
-    useNewUrlParser: true
+    useNewUrlParser: true,
   })
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 // Sessions
 app.use(bodyParser.json());
@@ -42,19 +43,19 @@ app.use(
     saveUninitialized: true,
     httpOnly: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { maxAge: 180 * 60 * 1000 }
+    cookie: { maxAge: 180 * 60 * 1000 },
   })
 );
 
 app.use(routes);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.login = req.isAuthenticated();
   res.locals.session = req.session;
   next();
 });
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

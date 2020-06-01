@@ -3,6 +3,7 @@ import jtlogo from '../../images/jt-logo.png';
 import blockstarlogo from '../../images/blockstar-logo.png';
 import planmelogo from '../../images/planmelogo.png';
 import Nav from '../Nav';
+import Footer from '../footer/Footer';
 import './apps.css';
 
 export default class Apps extends Component {
@@ -19,32 +20,27 @@ export default class Apps extends Component {
             </div>
           </div>
           <ul className='apps'>
-            <li>
-              <img src={jtlogo} />
+            <li className='jt-li'>
+              <li>
+                <img src={jtlogo} />
+              </li>
+              <li>
+                <h1>JobTrade</h1>
+              </li>
+              <li>
+                <p>Buy, Sell, Work and chat with people in your area.</p>
+              </li>
             </li>
-            <li>
-              <h1>JobTrade</h1>
-            </li>
-            <li>
-              <p>Buy, Sell, Work and chat with people in your area.</p>
-            </li>
-            <li>
-              <img src={blockstarlogo} />
-            </li>
-            <li>
-              <h1>Blockstar</h1>
-            </li>
-            <li>
-              <p>Earn points for lining up 4 colors in a row.</p>
-            </li>
-            <li>
-              <img src={planmelogo} />
-            </li>
-            <li>
-              <h1>PlanMe</h1>
-            </li>
-            <li>
-              <p>Plan your life with my special software.</p>
+            <li className='pm-li'>
+              <li>
+                <img src={planmelogo} />
+              </li>
+              <li>
+                <h1>PlanMe</h1>
+              </li>
+              <li>
+                <p>Plan your life and be more successful.</p>
+              </li>
             </li>
             <li>
               {' '}
@@ -59,6 +55,7 @@ export default class Apps extends Component {
             </li>
           </ul>
         </div>
+        <Footer />
       </div>
     );
   }
