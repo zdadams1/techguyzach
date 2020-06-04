@@ -12,34 +12,29 @@ const message = require('./routes/api/message');
 const users = require('./routes/api/users');
 const posts = require('./routes/api/posts');
 var MongoStore = require('connect-mongo')(session);
-
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
+server.listen(PORT);
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// Serve up static assets - Connects React to Backend -
-if (process.env.NODE_ENV === 'production') {
-  //  app.use(express.static("client/public"));
-  app.use(express.static('client/build'));
-}
-
-// Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/thestore", { useNewUrlParser: true });
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams', {
-    useNewUrlParser: true,
-  })
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.log(err));
 
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
+
 // Sessions
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(
   session({
@@ -52,12 +47,6 @@ app.use(
   })
 );
 
-// Passport middleware
-app.use(passport.initialize());
-
-// Passport Config
-require('./config/passport')(passport);
-
 app.use(routes);
 
 app.use(function (req, res, next) {
@@ -66,7 +55,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
