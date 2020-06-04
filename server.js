@@ -2,11 +2,11 @@ const express = require('express');
 var cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const app = express();
 var bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const http = require('http');
+const app = express();
 var session = require('express-session');
 const message = require('./routes/api/message');
 const users = require('./routes/api/users');
@@ -49,11 +49,11 @@ require('./config/passport')(passport);
 
 app.use(routes);
 
-app.use(function (req, res, next) {
-  res.locals.login = req.isAuthenticated();
-  res.locals.session = req.session;
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.login = req.isAuthenticated();
+//   res.locals.session = req.session;
+//   next();
+// });
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
