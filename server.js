@@ -19,8 +19,6 @@ server.listen(PORT);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const db = require('./config/keys').process.env.mongoURI;
-
 // Connect to MongoDB
 mongoose
   .connect('mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams', {
