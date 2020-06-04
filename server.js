@@ -35,17 +35,17 @@ require('./config/passport')(passport);
 
 // Sessions
 
-app.use(cookieParser());
-app.use(
-  session({
-    secret: 'mysupersecret',
-    resave: false,
-    saveUninitialized: true,
-    httpOnly: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { maxAge: 180 * 60 * 1000 },
-  })
-);
+// app.use(cookieParser());
+// app.use(
+//   session({
+//     secret: 'mysupersecret',
+//     resave: false,
+//     saveUninitialized: true,
+//     httpOnly: false,
+//     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+//     cookie: { maxAge: 180 * 60 * 1000 },
+//   })
+// );
 
 app.use(routes);
 
