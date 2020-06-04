@@ -50,6 +50,9 @@ export default class Nav extends Component {
                   <li className='header-blog'>
                     <a href='/apps'>Apps</a>
                   </li>
+                  <li className='header-blog2'>
+                    <a href='/blog'>Blog</a>
+                  </li>
                   <li className={this.props.cartPage}>
                     <a href='/cart'>
                       <i className='icon-shopping-cart' /> Cart{' '}

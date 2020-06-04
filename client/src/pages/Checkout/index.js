@@ -3,6 +3,7 @@ import API from '../../utils/API';
 import Nav from '../../components/Nav';
 import StripeCheckout from 'react-stripe-checkout';
 import { Redirect } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
 
 import axios from 'axios';
 
@@ -10,7 +11,7 @@ export default class Checkout extends Component {
   state = {
     products: [],
     cartData: [],
-    fireRedirect: false
+    fireRedirect: false,
   };
 
   componentDidMount() {
@@ -19,11 +20,11 @@ export default class Checkout extends Component {
 
   loadProducts = () => {
     API.getSess()
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
-  cartArray = data => {
+  cartArray = (data) => {
     this.makeProducts(data);
     var datas = data.items;
     var final = [];
@@ -36,14 +37,14 @@ export default class Checkout extends Component {
     this.setState({ cartData: final });
   };
 
-  makeProducts = data => {
+  makeProducts = (data) => {
     this.setState({ products: data });
   };
 
-  deletProduct = id => {
+  deletProduct = (id) => {
     API.reduceOne(id)
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
   onToken = (token, args) => {
@@ -121,14 +122,14 @@ export default class Checkout extends Component {
                     </div>
                   </div>
 
-                  {this.state.cartData.map(item => (
+                  {this.state.cartData.map((item) => (
                     <div className='product-cart'>
                       <div className='one-forth'>
                         <a href={'products/' + item.item._id}>
                           <div
                             className='product-img'
                             style={{
-                              backgroundImage: `url(images/${item.item.imageMain})`
+                              backgroundImage: `url(images/${item.item.imageMain})`,
                             }}
                           ></div>
                         </a>
@@ -221,6 +222,7 @@ export default class Checkout extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

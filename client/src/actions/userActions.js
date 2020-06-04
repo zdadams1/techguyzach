@@ -1,6 +1,12 @@
 import axios from 'axios';
 
-import { GET_ERRORS, SEND_MESSAGE, CLEAR_ERRORS } from './types';
+import {
+  GET_ERRORS,
+  SEND_MESSAGE,
+  CLEAR_ERRORS,
+  SET_CURRENT_USER,
+  CLEAR_CURRENT_USER,
+} from './types';
 
 const sendMessage = (messageData) => (dispatch) => {
   dispatch(clearErrors());
@@ -21,6 +27,13 @@ const sendMessage = (messageData) => (dispatch) => {
 };
 
 export default sendMessage;
+
+// Clear USER
+export const clearCurrentUser = () => {
+  return {
+    type: CLEAR_CURRENT_USER,
+  };
+};
 
 export const clearErrors = () => {
   return {

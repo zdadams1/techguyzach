@@ -6,13 +6,14 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './style.css';
 import axios from 'axios';
 import $ from 'jquery';
+import Footer from '../../components/footer/Footer';
 
 export default class Cart extends Component {
   state = {
     products: [],
     cartData: [],
     cartPage: 'active',
-    qtyUpdate: []
+    qtyUpdate: [],
   };
 
   componentDidMount() {
@@ -21,11 +22,11 @@ export default class Cart extends Component {
 
   loadProducts = () => {
     API.getSess()
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
-  cartArray = data => {
+  cartArray = (data) => {
     this.makeProducts(data);
     var datas = data.items;
     var final = [];
@@ -38,14 +39,14 @@ export default class Cart extends Component {
     this.setState({ cartData: final });
   };
 
-  makeProducts = data => {
+  makeProducts = (data) => {
     this.setState({ products: data });
   };
 
-  deletProduct = id => {
+  deletProduct = (id) => {
     API.reduceOne(id)
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
   cartCheck = () => {
@@ -59,11 +60,11 @@ export default class Cart extends Component {
     }
   };
 
-  addOne = id => {
+  addOne = (id) => {
     API.saveCart(id);
   };
 
-  removeOne = id => {
+  removeOne = (id) => {
     API.reduced(id);
   };
 
@@ -152,7 +153,7 @@ export default class Cart extends Component {
                             <div
                               className='product-img'
                               style={{
-                                backgroundImage: `url(images/${item.item.imageMain})`
+                                backgroundImage: `url(images/${item.item.imageMain})`,
                               }}
                             ></div>
                           </a>
@@ -274,6 +275,7 @@ export default class Cart extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

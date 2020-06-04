@@ -4,8 +4,13 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
 var bodyParser = require('body-parser');
+const passport = require('passport');
+const path = require('path');
+const http = require('http');
 var session = require('express-session');
 const message = require('./routes/api/message');
+const users = require('./routes/api/users');
+const posts = require('./routes/api/posts');
 var MongoStore = require('connect-mongo')(session);
 
 const PORT = process.env.PORT || 3001;
@@ -46,6 +51,12 @@ app.use(
     cookie: { maxAge: 180 * 60 * 1000 },
   })
 );
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
 
 app.use(routes);
 

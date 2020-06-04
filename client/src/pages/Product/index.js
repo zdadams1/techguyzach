@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import AddToCart from '../../components/AddCartBtn';
 import Nav from '../../components/Nav';
+import Footer from '../../components/footer/Footer';
 
 export default class Product extends Component {
   state = {
     product: [],
     products: [],
-    count: 0
+    count: 0,
   };
 
   componentDidMount() {
@@ -18,14 +19,14 @@ export default class Product extends Component {
 
   loadProduct = () => {
     API.getProduct(this.props.match.params.id)
-      .then(res => this.setState({ product: res.data }))
-      .catch(err => console.log(err));
+      .then((res) => this.setState({ product: res.data }))
+      .catch((err) => console.log(err));
   };
 
   loadProducts = () => {
     API.getProducts()
-      .then(res => this.setState({ products: res.data }))
-      .catch(err => console.log(err));
+      .then((res) => this.setState({ products: res.data }))
+      .catch((err) => console.log(err));
   };
 
   // handleChocie = (id) => {
@@ -39,11 +40,11 @@ export default class Product extends Component {
 
   setNavCart = () => {
     API.getSess()
-      .then(res => this.cartArray(res.data))
-      .catch(err => console.log(err));
+      .then((res) => this.cartArray(res.data))
+      .catch((err) => console.log(err));
   };
 
-  cartArray = data => {
+  cartArray = (data) => {
     var datas = data.items;
     var final = [];
     var work = 0;
@@ -58,7 +59,7 @@ export default class Product extends Component {
     this.setState({ count: work });
   };
 
-  handleChocie = id => {
+  handleChocie = (id) => {
     API.saveCart(id);
     this.setState({ count: this.state.count + 1 });
     alert('Added to Cart!');
@@ -87,7 +88,7 @@ export default class Product extends Component {
                                 'url(' +
                                 '../../images/' +
                                 this.state.product.imageMain +
-                                ')'
+                                ')',
                             }}
                           >
                             <p className='tag'>
@@ -134,6 +135,7 @@ export default class Product extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

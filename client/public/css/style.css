@@ -1846,7 +1846,7 @@ figure {
   font-size: 20px;
 }
 .article-entry .desc h2 a {
-  color: #000;
+  color: rgb(138, 145, 44);
 }
 .article-entry .desc .meta {
   line-height: 1.4;
@@ -2521,6 +2521,10 @@ input[type='text'] {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   outline: none !important;
+}
+
+.desc {
+  color: black;
 }
 
 .btn-primary {
