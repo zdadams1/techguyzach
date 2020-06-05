@@ -25,7 +25,7 @@ console.log(typeof db);
 // Connect to MongoDB
 mongoose
   .connect(db, {
-    useNewUrlParser: true,
+    useNewUrlParser: false,
     useUnifiedTopology: true,
   })
   .then(() => console.log('MongoDB Connected'))
