@@ -13,8 +13,6 @@ const users = require('./routes/api/users');
 const posts = require('./routes/api/posts');
 var MongoStore = require('connect-mongo')(session);
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3001;
-server.listen(PORT);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -26,6 +24,7 @@ console.log(db);
 mongoose
   .connect(db, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.log(err));
@@ -67,3 +66,5 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
+const PORT = process.env.PORT || 3001;
+server.listen(PORT);
