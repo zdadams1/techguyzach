@@ -13,12 +13,14 @@ const users = require('./routes/api/users');
 const posts = require('./routes/api/posts');
 var MongoStore = require('connect-mongo')(session);
 const server = http.createServer(app);
+const dotenv = require('dotenv');
 
+dotenv.config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const db = require('./config/keys').mongoURI;
-console.log(db);
+console.log(typeof db);
 
 // Connect to MongoDB
 mongoose
