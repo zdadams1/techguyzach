@@ -25,28 +25,39 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+// Connect to the Mongo DB
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/thestore", { useNewUrlParser: true });
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect('mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams', {
+    useNewUrlParser: true,
+  })
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.log(err));
+
 // Sessions
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// Connect to MongoDB
-mongoose
-  .createConnection(
-    'mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch((err) => console.log(err));
+app.use(cookieParser());
+app.use(
+  session({
+    secret: 'mysupersecret',
+    resave: false,
+    saveUninitialized: true,
+    httpOnly: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 180 * 60 * 1000 },
+  })
+);
 
 // Passport middleware
 app.use(passport.initialize());
 
-const JwtStrategy = require('passport-jwt').Strategy;
+// Passport Configconst JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-
 const User = mongoose.model('users');
 const keys = require('./config/keys');
 
