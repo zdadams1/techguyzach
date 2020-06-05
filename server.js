@@ -19,12 +19,12 @@ dotenv.config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const db = require('./config/keys').mongoURI;
+const db = require('./config/keys');
 console.log(typeof db);
 
 // Connect to MongoDB
 mongoose
-  .connect(db, {
+  .connect(db.mongoURI, {
     useNewUrlParser: false,
     useUnifiedTopology: true,
   })
