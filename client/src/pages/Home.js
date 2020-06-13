@@ -57,6 +57,15 @@ class Home extends Component {
       <div>
         <Nav totaler={this.state.count} homePage={this.state.homePage} />
         <HomeHeader />
+        <div className='landing-blog'>
+          <h3>View my posts about computers and software.</h3>
+          <a href='/blog' className='btn btn-lg read-btn'>
+            Read
+          </a>
+        </div>
+        <div className='landing-product'>
+          <h3>Buy from me</h3>
+        </div>
         <div className='colorlib-shop'>
           <div className='container'>
             <div className='row'>

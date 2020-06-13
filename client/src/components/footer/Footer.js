@@ -43,11 +43,7 @@ class Footer extends Component {
     const footer = (
       <ul className='footer-menu'>
         <li className='footer-item'>
-          <h3>Info</h3>
-          <p>
-            My name is Zach Adams and I make Computers and software to make
-            lives better.
-          </p>
+          <p>I'm Tech Guy Zach and I make technology to improve lives.</p>
           <button
             data-toggle='collapse'
             href='#contact-form'

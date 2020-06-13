@@ -24,6 +24,109 @@ body {
   background: #fff;
 }
 
+.posts-div {
+  background-color: rgb(76, 17, 184);
+}
+.post-home {
+  background-color: rgb(150, 147, 156);
+  padding: 2em 2em 2em 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  border-radius: 1em;
+}
+
+@media (max-width: 480px) {
+  .post-home {
+    margin-left: 1em;
+    margin-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.post-home p {
+  color: black;
+}
+
+.post-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.back-btn {
+  background-color: green;
+
+  color: white;
+}
+
+.content {
+  font-size: 1.5em;
+}
+
+.content-2 {
+  font-size: 1.3em;
+}
+
+.name {
+  margin-left: -2em;
+}
+
+.landing-header {
+  background-color: rgb(32, 28, 28);
+  list-style-type: none;
+  padding-top: 3.5em;
+  padding-bottom: 2em;
+  text-align: center;
+  margin-top: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+  width: 100vw;
+}
+
+.landing-blog {
+  background-color: rgb(143, 7, 25);
+  list-style-type: none;
+  padding-top: 3.5em;
+  padding-bottom: 2em;
+  text-align: center;
+  margin-top: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+  width: 100vw;
+}
+
+.landing-blog a {
+  background-color: rgb(10, 124, 6);
+  color: white;
+}
+
+.landing-blog h3 {
+  color: white;
+  font-size: 1.2em;
+}
+
+.landing-header h3 {
+  color: gold;
+  font-size: 1em;
+}
+
+.landing-product {
+  background-color: rgb(10, 124, 6);
+  list-style-type: none;
+  padding-top: 3.5em;
+  padding-bottom: 2em;
+  text-align: center;
+  margin-top: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+  width: 100vw;
+}
+
+.landing-product h3 {
+  color: white;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;
@@ -550,8 +653,15 @@ figure {
 .colorlib-blog,
 #colorlib-subscribe,
 #colorlib-footer {
-  padding-bottom: 9em;
+  padding-bottom: 3em;
   clear: both;
+
+  background-color: rgb(55, 21, 148);
+  padding-top: 3em;
+}
+
+.product-desc {
+  color: white;
 }
 
 .colorlib-shop .icon {
@@ -612,6 +722,7 @@ figure {
   height: 350px;
   margin-bottom: 20px;
   position: relative;
+  border-radius: 1em;
 }
 .product-entry .product-img .tag {
   position: absolute;
@@ -677,10 +788,10 @@ figure {
   margin-bottom: 10px;
 }
 .product-entry .desc h3 a {
-  color: #000;
+  color: gold;
 }
 .product-entry .desc .price span {
-  color: #ffc300;
+  color: gold;
   font-weight: 400;
 }
 .product-entry .desc .price .sale {
@@ -2730,4 +2841,34 @@ input[type='text'] {
 
 .js .animate-box {
   opacity: 0;
+}
+
+.addtocart {
+  margin-left: 11em;
+}
+
+@media (max-width: 1195px) {
+  .addtocart {
+    margin-left: 8em;
+  }
+}
+@media (max-width: 995px) {
+  .addtocart {
+    margin-left: 16.5em;
+  }
+}
+@media (max-width: 745px) {
+  .addtocart {
+    margin-left: 13.5em;
+  }
+}
+@media (max-width: 550px) {
+  .addtocart {
+    margin-left: 9em;
+  }
+}
+@media (max-width: 411px) {
+  .addtocart {
+    margin-left: 6em;
+  }
 }

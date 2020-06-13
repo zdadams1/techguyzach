@@ -5,24 +5,51 @@ import PropTypes from 'prop-types';
 import PostItem from '../posts/PostItem';
 import Spinner from '../common/Spinner';
 import { getPost } from '../../actions/postActions';
+import axios from 'axios';
+import Nav from '../Nav';
+import Footer from '../footer/Footer';
 
 class Post extends Component {
+  state = {
+    fullPost: [],
+  };
   componentDidMount() {
-    this.props.getPost(this.props.match.params.id);
+    console.log(this.props.match);
+    axios.get(`/api/posts/${this.props.match.params.post}`).then((res) => {
+      const fullPost = res.data;
+      this.setState({ fullPost });
+    });
   }
 
   render() {
-    const { post, loading } = this.props.post;
+    const { loading } = this.props;
+    const { fullPost } = this.state;
+
     let postContent;
 
-    if (post === null || loading || Object.keys(post).length === 0) {
+    if (fullPost === null || loading) {
       postContent = <Spinner />;
     } else {
-      postContent = (
-        <div>
-          <PostItem post={post} showActions={false} />
+      postContent = fullPost.map((post) => (
+        <div className='card card-body mb-3'>
+          <div className='post-home'>
+            <div className=''>
+              <img
+                className='rounded-circle d-none d-md-block'
+                src={post.image}
+                alt=''
+              />
+
+              <br />
+              <p className='text-center post-name'>{post.name}</p>
+            </div>
+            <div className=''>
+              <p className='content'>{post.description}</p>
+              <p className='content-2'>{post.content}</p>
+            </div>
+          </div>
         </div>
-      );
+      ));
     }
 
     return (
@@ -30,25 +57,18 @@ class Post extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <Link to='/feed' className='btn btn-light mb-3'>
-                Back To Feed
+              <Nav />
+              <Link to='/blog' className='btn  back-btn mb-3'>
+                Back
               </Link>
               {postContent}
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-Post.propTypes = {
-  getPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  post: state.post,
-});
-
-export default connect(mapStateToProps, { getPost })(Post);
+export default Post;

@@ -12,38 +12,29 @@ class PostItem extends Component {
 
   render() {
     const { post, auth, showActions } = this.props;
+    console.log(post);
 
     return (
       <div className='card card-body mb-3'>
-        <div className='row'>
-          <div className='col-md-2'>
-            <a href='profile.html'>
-              <img
-                className='rounded-circle d-none d-md-block'
-                src={post.image}
-                alt=''
-              />
-            </a>
+        <div className='post-home'>
+          <div className=''>
+            <img
+              className='rounded-circle d-none d-md-block'
+              src={post.image}
+              alt=''
+            />
+
             <br />
-            <p className='text-center'>{post.name}</p>
+            <p className='text-center post-name'>{post.name}</p>
           </div>
-          <div className='col-md-10'>
+          <div className=''>
             <p className='lead'>{post.description}</p>
-            {showActions ? (
-              <span>
-                {post.user === auth.user.id ? (
-                  <button
-                    onClick={this.onDeleteClick.bind(this, post._id)}
-                    type='button'
-                    className='btn btn-danger mr-1'
-                  >
-                    <i className='fas fa-times' />
-                  </button>
-                ) : null}
-              </span>
-            ) : null}
-            <video src={post.video}></video>
-            <p>{post.content}</p>
+            <a
+              href={`/blog/${post.name}`}
+              className='post-link btn btn-success'
+            >
+              View
+            </a>
           </div>
         </div>
       </div>

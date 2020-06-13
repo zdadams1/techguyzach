@@ -7,37 +7,38 @@ import Spinner from '../common/Spinner';
 import { getPosts } from '../../actions/postActions';
 import Nav from '../Nav';
 import Footer from '../footer/Footer';
+import axios from 'axios';
 
 class Posts extends React.Component {
+  state = {
+    posts: [],
+  };
   componentDidMount() {
-    this.props.getPosts();
+    axios.get('/api/posts').then((res) => {
+      const posts = res.data;
+      this.setState({ posts });
+    });
   }
 
   render() {
-    const { posts, loading } = this.props;
+    const { loading } = this.props;
+    const { posts } = this.state;
     const { user } = this.props.auth;
-    console.log(user);
+    console.log(posts);
 
     let postContent;
     let postForm;
 
     if (posts === null || loading) {
       postContent = <Spinner />;
-    }
-    if (posts === undefined) {
-      postContent = <div>No Posts Yet</div>;
+    } else {
       if (user.id === '5c9ef0eed817bc2ad498fddf') {
         postForm = <PostForm />;
+        postContent = <PostFeed posts={posts} />;
       } else {
+        postContent = <PostFeed posts={posts} />;
         postForm = null;
       }
-    } else {
-      postContent = <PostFeed posts={posts} />;
-    }
-    if (user.id === '5c9ef0eed817bc2ad498fddf') {
-      postForm = <PostForm />;
-    } else {
-      postForm = null;
     }
 
     return (
@@ -52,14 +53,11 @@ class Posts extends React.Component {
 }
 
 Posts.propTypes = {
-  getPosts: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post,
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(mapStateToProps)(Posts);

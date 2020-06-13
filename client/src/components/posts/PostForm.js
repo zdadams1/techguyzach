@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
 import TextFieldGroup from '../common/TextFieldGroup';
@@ -32,14 +33,18 @@ class PostForm extends Component {
     const { user } = this.props.auth;
 
     const newPost = {
+      user: user,
       name: this.state.name,
       description: this.state.description,
       image: this.state.image,
       video: this.state.video,
       content: this.state.content,
     };
-
-    this.props.addPost(newPost);
+    console.log(newPost);
+    axios
+      .post('/api/posts', newPost)
+      .then((res) => alert('Post made'))
+      .catch((err) => console.log(err));
   }
 
   onChange(e) {

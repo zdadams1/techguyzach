@@ -122,6 +122,7 @@ export default class Product extends Component {
                           </div> */}
                               <AddToCart
                                 id={this.state.product._id}
+                                className='addtocart'
                                 handleChocie={this.handleChocie}
                               />
                             </div>

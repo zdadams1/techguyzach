@@ -33,6 +33,7 @@ const db = require('./config/keys').mongoURI;
 mongoose
   .connect('mongodb://zdadams1:Za2011!!@ds113795.mlab.com:13795/zach-adams', {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.log(err));

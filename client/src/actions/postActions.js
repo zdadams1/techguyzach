@@ -16,11 +16,10 @@ export const getPosts = () => (dispatch) => {
   dispatch(setPostLoading());
   axios
     .get('/api/posts')
-    .then((res) => res.data)
-    .then((posts) =>
+    .then((res) =>
       dispatch({
         type: GET_POSTS,
-        payload: posts,
+        payload: res.data,
       })
     )
     .catch((err) =>

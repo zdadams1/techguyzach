@@ -12,9 +12,9 @@ export default class Apps extends Component {
       <div>
         <Nav />
 
-        <div className='apps container'>
-          <div className='card apps-header'>
-            <div className='card-body'>
+        <div className='apps '>
+          <div className=' apps-header'>
+            <div className=''>
               <h1>Software</h1>
               <p>My custom built Applications.</p>
             </div>
@@ -28,7 +28,7 @@ export default class Apps extends Component {
                 <h1>JobTrade</h1>
               </li>
               <li>
-                <p>Buy, Sell, Work and chat with people in your area.</p>
+                <p>Buy, sell, work and chat with people in your area.</p>
               </li>
             </li>
             <li className='pm-li'>
@@ -39,7 +39,10 @@ export default class Apps extends Component {
                 <h1>PlanMe</h1>
               </li>
               <li>
-                <p>Plan your life and be more successful.</p>
+                <p>
+                  Plan your life and be more successful. Todo's, meal and
+                  excersize planner and budgeter.
+                </p>
               </li>
             </li>
             <li>
