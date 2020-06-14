@@ -2282,6 +2282,12 @@ input[type='text'] {
   border-radius: 1em;
 }
 
+@media (max-width: 480px) {
+  .nav-logo {
+    margin-left: 0.8em;
+  }
+}
+
 .name {
   font-size: 0.8em;
 }
