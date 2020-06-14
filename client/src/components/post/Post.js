@@ -8,6 +8,8 @@ import { getPost } from '../../actions/postActions';
 import axios from 'axios';
 import Nav from '../Nav';
 import Footer from '../footer/Footer';
+import ReactHtmlParser from 'react-html-parser';
+import Subscribe from '../subscribe/Subscribe';
 
 class Post extends Component {
   state = {
@@ -19,6 +21,12 @@ class Post extends Component {
       const fullPost = res.data;
       this.setState({ fullPost });
     });
+  }
+
+  htmlDecode(input) {
+    var e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;
   }
 
   render() {
@@ -45,7 +53,7 @@ class Post extends Component {
             </div>
             <div className=''>
               <p className='content'>{post.description}</p>
-              <p className='content-2'>{post.content}</p>
+              <p className='content-2'>{ReactHtmlParser(post.content)}</p>
             </div>
           </div>
         </div>
@@ -65,6 +73,7 @@ class Post extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

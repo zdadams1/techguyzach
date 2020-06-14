@@ -8,6 +8,7 @@ import { getPosts } from '../../actions/postActions';
 import Nav from '../Nav';
 import Footer from '../footer/Footer';
 import axios from 'axios';
+import Subscribe from '../subscribe/Subscribe';
 
 class Posts extends React.Component {
   state = {
@@ -46,6 +47,7 @@ class Posts extends React.Component {
         <Nav />
         {postForm}
         {postContent}
+        <Subscribe />
         <Footer />
       </div>
     );

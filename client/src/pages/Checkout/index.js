@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 
 import axios from 'axios';
+import Subscribe from '../../components/subscribe/Subscribe';
 
 export default class Checkout extends Component {
   state = {
@@ -222,6 +223,7 @@ export default class Checkout extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

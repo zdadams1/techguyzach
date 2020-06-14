@@ -7,6 +7,7 @@ import './style.css';
 import axios from 'axios';
 import $ from 'jquery';
 import Footer from '../../components/footer/Footer';
+import Subscribe from '../../components/subscribe/Subscribe';
 
 export default class Cart extends Component {
   state = {
@@ -275,6 +276,7 @@ export default class Cart extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

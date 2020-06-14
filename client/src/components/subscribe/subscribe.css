@@ -1,0 +1,23 @@
+.subscribe {
+  background-color: gold;
+  color: black;
+  padding-top: 1em;
+  margin-top: 0em;
+}
+
+.subscribe li {
+  list-style-type: none;
+}
+
+.sub-email {
+  width: 20em;
+  border-radius: 1em;
+}
+
+.sub-submit-btn {
+  background-color: black;
+  color: gold;
+  margin-top: 1em;
+  width: 8em;
+  margin-bottom: 2em;
+}

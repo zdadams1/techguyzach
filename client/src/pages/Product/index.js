@@ -3,6 +3,7 @@ import API from '../../utils/API';
 import AddToCart from '../../components/AddCartBtn';
 import Nav from '../../components/Nav';
 import Footer from '../../components/footer/Footer';
+import Subscribe from '../../components/subscribe/Subscribe';
 
 export default class Product extends Component {
   state = {
@@ -136,6 +137,7 @@ export default class Product extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

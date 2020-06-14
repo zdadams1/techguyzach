@@ -5,6 +5,7 @@ import planmelogo from '../../images/planmelogo.png';
 import Nav from '../Nav';
 import Footer from '../footer/Footer';
 import './apps.css';
+import Subscribe from '../subscribe/Subscribe';
 
 export default class Apps extends Component {
   render() {
@@ -58,6 +59,7 @@ export default class Apps extends Component {
             </li>
           </ul>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

@@ -5,6 +5,7 @@ import axios from 'axios';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
 import TextFieldGroup from '../common/TextFieldGroup';
+
 class PostForm extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,7 @@ class PostForm extends Component {
       image: '',
       video: '',
       content: '',
+
       errors: {},
     };
 
@@ -31,6 +33,8 @@ class PostForm extends Component {
     e.preventDefault();
 
     const { user } = this.props.auth;
+    const { content } = this.state;
+    const text = content.replace(/\r?\n/g, '<br />');
 
     const newPost = {
       user: user,
@@ -38,7 +42,7 @@ class PostForm extends Component {
       description: this.state.description,
       image: this.state.image,
       video: this.state.video,
-      content: this.state.content,
+      content: text,
     };
     console.log(newPost);
     axios
@@ -87,10 +91,13 @@ class PostForm extends Component {
           onChange={this.onChange}
           error={errors.video}
         />
-        <TextAreaFieldGroup
-          placeholder='post content'
+        <textarea
+          placeholder='content'
           name='content'
           type='text'
+          rows='4'
+          cols='40'
+          wrap='hard'
           value={this.state.content}
           onChange={this.onChange}
           error={errors.content}

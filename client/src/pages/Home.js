@@ -4,6 +4,7 @@ import Products from '../components/Products';
 import HomeHeader from '../components/HomeHeader';
 import Nav from '../components/Nav';
 import Footer from '../components/footer/Footer';
+import Subscribe from '../components/subscribe/Subscribe';
 
 class Home extends Component {
   state = {
@@ -83,6 +84,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );

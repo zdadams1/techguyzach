@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import Nav from '../../components/Nav';
 import Footer from '../../components/footer/Footer';
+import Subscribe from '../../components/subscribe/Subscribe';
 
 class OrderComplete extends Component {
   render() {
@@ -53,6 +54,7 @@ class OrderComplete extends Component {
             </div>
           </div>
         </div>
+        <Subscribe />
         <Footer />
       </div>
     );
