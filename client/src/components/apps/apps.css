@@ -108,7 +108,7 @@ body {
 }
 
 .apps-donate {
-  margin-bottom: 0em;
+  margin-bottom: -1em;
   margin-top: 0em;
   background-color: rgb(153, 12, 12);
   padding-top: 3em;

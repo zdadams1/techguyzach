@@ -4,8 +4,8 @@
   background-color: #1a241a;
   position: bottom;
   display: inline-block;
-  margin-left: -4.7em;
-  padding-right: 5em;
+  margin-left: -5.7em;
+  padding-right: 4.3em;
   width: 107vw;
   margin-top: -1em;
 }
@@ -45,6 +45,7 @@
 
 .show-form {
   margin-top: -0em;
+  margin-left: 1.4em;
 }
 
 .email {

@@ -32,7 +32,7 @@ export default class Subscribe extends Component {
   render() {
     return (
       <div className='subscribe'>
-        <h3>Be notified of new products and content.</h3>
+        <h3>Be notified of new products, apps and content.</h3>
         <form onSubmit={this.onSubmit}>
           <li>
             <input
@@ -45,7 +45,9 @@ export default class Subscribe extends Component {
             />
           </li>
           <li>
-            <input type='submit' className='btn sub-submit-btn' />
+            <button type='submit' className='btn sub-submit-btn'>
+              Subscribe
+            </button>
           </li>
         </form>
       </div>

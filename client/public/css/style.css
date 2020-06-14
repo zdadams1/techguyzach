@@ -34,6 +34,16 @@ body {
   margin-right: 2em;
   margin-bottom: 2em;
   border-radius: 1em;
+  margin-top: 1em;
+}
+
+.posts-header {
+  background-color: black;
+  color: gold;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
 }
 
 @media (max-width: 480px) {
@@ -56,6 +66,7 @@ body {
 
 .back-btn {
   background-color: green;
+  margin-bottom: 3em;
 
   color: white;
 }
@@ -82,6 +93,28 @@ body {
   margin-left: 0em;
   margin-right: 0em;
   width: 100vw;
+}
+
+.landing-apps {
+  background-color: rgb(104, 6, 87);
+  list-style-type: none;
+  padding-top: 3.5em;
+  padding-bottom: 2em;
+  text-align: center;
+  margin-top: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+  width: 100vw;
+}
+
+.landing-apps a {
+  background-color: rgb(7, 7, 7);
+  color: gold;
+}
+
+.landing-apps h3 {
+  color: gold;
+  font-size: 1.2em;
 }
 
 .landing-blog {

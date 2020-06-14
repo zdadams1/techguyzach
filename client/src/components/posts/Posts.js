@@ -45,6 +45,11 @@ class Posts extends React.Component {
     return (
       <div className='feed'>
         <Nav />
+        <div className='posts-header'>
+          <div className=''>
+            <p>My posts about technology</p>
+          </div>
+        </div>
         {postForm}
         {postContent}
         <Subscribe />

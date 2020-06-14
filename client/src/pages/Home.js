@@ -58,8 +58,14 @@ class Home extends Component {
       <div>
         <Nav totaler={this.state.count} homePage={this.state.homePage} />
         <HomeHeader />
+        <div className='landing-apps'>
+          <h3>View my applications</h3>
+          <a href='/apps' className='btn btn-lg read-btn-apps'>
+            View
+          </a>
+        </div>
         <div className='landing-blog'>
-          <h3>View my posts about computers and software.</h3>
+          <h3>Read my posts about technology</h3>
           <a href='/blog' className='btn btn-lg read-btn'>
             Read
           </a>
