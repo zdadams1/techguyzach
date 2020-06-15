@@ -71,7 +71,7 @@ class Home extends Component {
           </a>
         </div>
         <div className='landing-product'>
-          <h3>Buy from me</h3>
+          <h3>Buy</h3>
         </div>
         <div className='colorlib-shop'>
           <div className='container'>
