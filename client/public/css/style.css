@@ -29,7 +29,7 @@ body {
 }
 .post-home {
   background-color: rgb(150, 147, 156);
-  padding: 2em 2em 2em 2em;
+  padding: 4em 4em 4em 4em;
   margin-left: 2em;
   margin-right: 2em;
   margin-bottom: 2em;
@@ -55,6 +55,11 @@ body {
   }
 }
 
+@media (min-width: 600px) {
+  .post-home {
+    padding: 6em 6em 6em 6em;
+  }
+}
 .post-home p {
   color: black;
 }

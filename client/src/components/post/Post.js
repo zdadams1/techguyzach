@@ -66,9 +66,7 @@ class Post extends Component {
           <div className='row'>
             <div className='col-md-12'>
               <Nav />
-              <Link to='/blog' className='btn  back-btn mb-3'>
-                Back
-              </Link>
+
               {postContent}
             </div>
           </div>
