@@ -50,7 +50,7 @@ class Footer extends Component {
             role='button'
             aria-expanded='false'
             aria-controls='collapse'
-            className='btn btn-lg show-form'
+            className='btn btn-lg show-form footer-button'
           >
             Contact
           </button>
@@ -106,7 +106,7 @@ class Footer extends Component {
                   id='message'
                 ></textarea>
               </div>
-              <button type='submit' className='btn btn-success mb-3'>
+              <button type='submit' className='btn footer-button f-btn-2 mb-3'>
                 Submit
               </button>
             </form>

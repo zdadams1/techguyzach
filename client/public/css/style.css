@@ -95,6 +95,13 @@ body {
   width: 100vw;
 }
 
+@media (max-width: 480px) {
+  .landing-header {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
 .landing-apps {
   background-color: rgb(104, 6, 87);
   list-style-type: none;
@@ -110,6 +117,7 @@ body {
 .landing-apps a {
   background-color: rgb(7, 7, 7);
   color: gold;
+  border-radius: 1em;
 }
 
 .landing-apps h3 {
@@ -119,6 +127,7 @@ body {
 
 .landing-blog {
   background-color: rgb(143, 7, 25);
+  color: gold;
   list-style-type: none;
   padding-top: 3.5em;
   padding-bottom: 2em;
@@ -131,11 +140,16 @@ body {
 
 .landing-blog a {
   background-color: rgb(10, 124, 6);
-  color: white;
+  color: gold;
+  border-radius: 1em;
+}
+
+.post-home a {
+  border-radius: 1em;
 }
 
 .landing-blog h3 {
-  color: white;
+  color: gold;
   font-size: 1.2em;
 }
 
@@ -146,6 +160,7 @@ body {
 
 .landing-product {
   background-color: rgb(10, 124, 6);
+
   list-style-type: none;
   padding-top: 3.5em;
   padding-bottom: 2em;
@@ -157,7 +172,7 @@ body {
 }
 
 .landing-product h3 {
-  color: white;
+  color: gold;
 }
 
 #page {
